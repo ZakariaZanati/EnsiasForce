@@ -1,0 +1,43 @@
+<div class="content_wrapper">
+    <div class="one">
+        <div>You don’t have an account ? <a routerLink='/signup'>sign up</a> </div>
+    </div>
+    <div class="two">
+        <div class="title"></div>
+        <div class="signup_form">
+            <form #signupForm="ngForm" >
+                <div class="header">
+                    <div class="alert alert-danger" *ngIf="">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="input_section">
+                    <div class="label"> <label for="email">Email Address </label> </div>
+                    <input 
+                        type="text" 
+                        name="email" 
+                        id="email"
+                        ngModel
+                        required
+                        email>
+                </div>
+                <div class="input_section">
+                    <div class="label"> <label for="password">Password </label> </div>
+                    <input 
+                        type="password" 
+                        name="password" 
+                        id="password"
+                        ngModel
+                        required
+                        minlength="6">
+                </div>
+                <div class="footer">
+                    <div class="submit">
+                        <button type="submit" [disabled]="!signupForm.valid" >LOG IN</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

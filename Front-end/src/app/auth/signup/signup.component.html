@@ -1,0 +1,93 @@
+<div class="content_wrapper">
+    <div class="one">
+        <div class="title">Sign Up And Join Our Community</div>
+        <div class="signup_form">
+            <form #signupForm="ngForm" >
+                <div class="header">
+                    <div class="alert alert-danger" *ngIf="">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="input_section">
+                    <div class="label"> <label for="userType">User Type </label> </div>
+                    <div class="radio_buttons">
+                        <div>
+                            <mat-radio-group name="userType"  ngModel required style="display: flex; justify-content: space-between; width: 200px; color: black;" >
+                                <mat-radio-button  value="STUDENT">
+                                    STUDENT
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        <div>
+                            <mat-radio-group name="userType"  ngModel required style="display: flex; justify-content: space-between; width: 200px; color: black;" >
+                                <mat-radio-button  value="GRADUATE">
+                                    GRADUATE
+                                </mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="input_section">
+                    <div class="label"> <label for="status">Status </label> </div>
+                    <input 
+                        type="text" 
+                        name="status" 
+                        id="status"
+                        ngModel
+                        required
+                        minlength="4">
+                </div>
+                <div class="input_section">
+                    <div class="label"> <label for="email">Email Address </label> </div>
+                    <input 
+                        type="text" 
+                        name="email" 
+                        id="email"
+                        ngModel
+                        required
+                        email>
+                </div>
+                <div class="input_section">
+                    <div class="label"> <label for="fullname">Full Name </label> </div>
+                    <input 
+                        type="text" 
+                        name="fullname" 
+                        id="fullname"
+                        ngModel
+                        required
+                        minlength="6">
+                </div>
+                <div class="input_section">
+                    <div class="label"> <label for="password">Password </label> </div>
+                    <input 
+                        type="password" 
+                        name="password" 
+                        id="password"
+                        ngModel
+                        required
+                        minlength="6">
+                </div>
+                <div class="input_section">
+                    <div class="label"> <label for="confirmation">Confirmation </label> </div>
+                    <input 
+                        type="password" 
+                        name="confirmation" 
+                        id="confirmation"
+                        ngModel
+                        required
+                        minlength="6">
+                </div>
+                <div class="footer">
+                    <div class="submit">
+                        <button type="submit" [disabled]="!signupForm.valid" >SUBMIT</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    <div class="two">
+            <div>Already have and account ? <span><a routerLink="/signin">sign in</a></span></div>
+    </div>
+</div>

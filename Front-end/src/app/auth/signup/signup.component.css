@@ -1,0 +1,120 @@
+.content_wrapper{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    height: 95%;
+}
+
+.one{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.two{
+    background-image: url('../../../assets/122336963_1336270723372299_5778549846896803043_o.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    position: relative;
+}
+
+.two div{
+    color: white;
+    position: absolute;
+    bottom: 40px;
+    left: 30%;
+    font-size: 1.4em;
+}
+
+.two a{
+    color: black;
+    text-decoration: none;
+}
+
+.two a:hover{
+    color: red;
+}
+
+.one .title{
+    font-size: 30px;
+    color: red;
+    margin: 100px auto;
+}
+
+.signup_form{
+    width: 550px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid red;
+    background-color: #E8E8E8;
+    padding-top: 50px;
+    border-radius: 30px;
+}
+
+.input_section{
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin: 0 auto;
+    font-size: 1.1em;
+}
+
+.radio_buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.radio_buttons>div{
+    width: 120px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+}
+.input_section>input{
+    width: 240px;
+    height: 35px;
+    padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    
+}
+
+.footer{
+    padding: 20px 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.footer>.submit{
+    height: 40px;
+}
+
+.footer button{
+    padding: 7px 20px ;
+    color: white;
+    background-color: red;
+    border-radius: 30px;
+    outline: none;
+    border: 2px solid red;
+    font-size: 1.4em;
+}
+
+.footer button:hover{
+    border: 2px solid red;
+    color: red;
+    background-color: white;
+}
+
+.footer a {
+    color: red;
+}
+

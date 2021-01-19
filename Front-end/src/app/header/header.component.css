@@ -1,0 +1,50 @@
+.header_wrapper{
+    width: 100%;
+    height: 70px;
+    border-bottom: 3px solid red;
+}
+
+.header_content{
+    width: 85%;
+    height: 70px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #858585;
+}
+
+.one {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.two{
+    width: 200px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.two a {
+    text-decoration: none;
+    color: #858585;
+    outline: none;
+}
+
+
+.one .logo{
+    font-size: 20px;
+    padding-right: 8px;
+    border-right: 1px solid gray;
+}
+
+.one .title{
+    font-size: 32px;
+    cursor: pointer;
+    outline: none;
+}
+
