@@ -13,6 +13,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './user/profile/profile.component';
+import { ExperienceComponent } from './user/experience/experience.component';
+import { FormationComponent } from './user/formation/formation.component';
+import { SkillsComponent } from './user/skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { ProfileComponent } from './user/profile/profile.component';
     SidebarComponent,
     LoginComponent,
     SignupComponent,
-    ProfileComponent
+    ProfileComponent,
+    ExperienceComponent,
+    FormationComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,

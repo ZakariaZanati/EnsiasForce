@@ -1,0 +1,31 @@
+<div class="skills_container">
+    <div class="header">
+        <div class="title">Skills</div>
+        <div class="add_exp" (click)="showForm()"><i class="fas fa-plus-circle"></i></div>
+    </div>
+    <div class="skills_form" *ngIf="displayForm">
+        <div class="form_container">
+            <form>
+                <div class="input_section">
+                    <input 
+                        type="text" 
+                        name="post" 
+                        id="post"
+                        placeholder="add skill ..."
+                        ngModel
+                        required
+                        minlength="4">
+                </div>
+            </form>
+        </div>
+        <div class="form_footer">
+            <button>Add</button>
+        </div>
+    </div>
+    <div class="skills_details">
+        <div class="details" *ngFor="let skill of skills">
+            <div class="skill">{{skill}}</div>
+        </div>
+    </div>
+</div>
+

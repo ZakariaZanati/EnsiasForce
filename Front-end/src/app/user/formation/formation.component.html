@@ -1,0 +1,103 @@
+<div class="experience_container">
+    <div class="header">
+        <div class="title">Formations</div>
+        <div class="add_exp" (click)="showForm()"><i class="fas fa-plus-circle"></i></div>
+    </div>
+    <div class="experience_form" *ngIf="displayForm">
+        <div class="form_title">
+            <div>Add Formation</div>
+            <div style="cursor: pointer;" (click)="showForm()"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="form_container">
+            <form>
+                <div class="input_section">
+                    <div class="label"> <label for="post">Degree </label> </div>
+                    <input 
+                        type="text" 
+                        name="post" 
+                        id="post"
+                        ngModel
+                        required
+                        minlength="4">
+                </div>
+                <div class="input_section">
+                    <div class="label"> <label for="enterprise">School / University </label> </div>
+                    <input 
+                        type="text" 
+                        name="enterprise" 
+                        id="enterprise"
+                        ngModel
+                        required
+                        minlength="4">
+                </div>
+                <div class="input_section">
+                    <div class="label"> <label for="location">Location </label> </div>
+                    <input 
+                        type="text" 
+                        name="location" 
+                        id="location"
+                        ngModel
+                        required
+                        minlength="4">
+                </div>
+                <div class="input_section">
+                    <div class="input_title">Debut date</div>
+                    <div class="input_content">
+                        <div class="label"> <label for="debut_month">Month </label> </div>
+                        <input 
+                            type="text" 
+                            name="debut_month" 
+                            id="debut_month"
+                            ngModel
+                            required
+                            minlength="4">
+                        <div class="label"> <label for="debut_year">Year </label> </div>
+                        <input 
+                            type="text" 
+                            name="debut_year" 
+                            id="debut_year"
+                            ngModel
+                            required
+                            minlength="4">
+                    </div>
+                    
+                </div>
+                <div class="input_section">
+                    <div class="input_title">End date</div>
+                    <div class="input_content">
+                        <div class="label"> <label for="end_month">Month </label> </div>
+                        <input 
+                            type="text" 
+                            name="end_month" 
+                            id="end_month"
+                            ngModel
+                            required
+                            minlength="4">
+                        <div class="label"> <label for="end_year">Year </label> </div>
+                        <input 
+                            type="text" 
+                            name="end_year" 
+                            id="end_year"
+                            ngModel
+                            required
+                            minlength="4">
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+        <div class="form_footer">
+            <button>Add</button>
+        </div>
+    </div>
+    <div class="experience_details">
+        <div class="image"></div>
+        <div class="details">
+            <div class="name">Genie Logiciel</div>
+            <div class="enterprise">ENSIAS</div>
+            <div class="duration">Septembre 2018 - Today</div>
+            <div class="location">Rabat, Morocco</div>
+        </div>
+    </div>
+</div>
+
