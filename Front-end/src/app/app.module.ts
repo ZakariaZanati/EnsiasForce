@@ -23,6 +23,7 @@ import { JobsListComponent } from './jobs/jobs-list/jobs-list.component';
 import { JobDescriptionComponent } from './jobs/job-description/job-description.component';
 import { JobDetailsComponent } from './jobs/job-details/job-details.component';
 import { JobFormComponent } from './jobs/job-form/job-form.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { JobFormComponent } from './jobs/job-form/job-form.component';
     JobsListComponent,
     JobDescriptionComponent,
     JobDetailsComponent,
-    JobFormComponent
+    JobFormComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,

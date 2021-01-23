@@ -1,0 +1,743 @@
+
+.posts_wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.posts_content {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+}
+
+
+/* #content-wrapper {
+    margin-left: 15%;
+    margin-top: 20px;
+    margin-right: 20px;
+    display: flex;
+} */
+
+
+
+/**************************************************************************
+    main container > MAIN SECTION
+**************************************************************************/
+
+.posts_content > div#main-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 10px 100px 10px
+}
+
+.posts_content main#main-section {
+    grid-area: main-section;
+    margin: 0 25px;
+    width: 550px;
+}
+
+
+/* .container > div#main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-bottom: 100px;
+}
+
+div.container main#main-section {
+    grid-area: main-section;
+    margin: 0 25px;
+    width: 550px;
+} */
+
+/**************************************************************************
+    main container > main section > SHARE BOX & FEED SORT
+**************************************************************************/
+
+hr {
+    border: 0;
+    display: block;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-top: 2px solid rgb(8 8 8 / 25%); 
+}
+
+.filters-section {
+    margin: 10px 0px 10px 3px;
+    display: flex;
+    justify-content: center;
+}
+
+.filters-section hr {
+    /* flex: 1; */
+    border: 0;
+    display: block;
+    height: 1px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.filter-btn {
+    background-color: #9ca2a9; /* Blue background */
+    border: 2px solid #f30505;
+    color: white; /* White text */
+    padding: 5px 15px; /* Some padding */
+    margin-right: 5px;
+    font-size: 14px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 20px;
+}
+
+.filter-btn:hover {
+    background-color: RoyalBlue;
+}
+
+
+.posts_content aside#right-aside {
+    background-color: whitesmoke;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    height: 273px;
+    max-width: 350px;
+    margin-top: 20px;
+}
+
+
+
+main#main-section div#share-box {
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    margin-top: 1px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+main#main-section div#share-box div#button-box {
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+main#main-section div#share-box div#button-box .fas {
+    font-size: 18px;
+}
+
+main#main-section div#share-box div#button-box button {
+    background: #fff;
+    border: 0;
+    color: #696c6f;
+    border-right: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 26px 26.5px;
+    cursor: pointer;
+}
+
+main#main-section div#share-box div#button-box button#btn-post {
+    width: 100%;
+    text-align: left;
+    padding: 26px 17px;
+}
+
+main#main-section div#share-box div#button-box button#btn-post:hover {
+    color: #0073b1;
+}
+
+main#main-section
+    div#share-box
+    div#button-box
+    button#btn-post:hover
+    span#btn-text {
+    text-decoration: underline;
+}
+
+main#main-section div#share-box div#button-box button#btn-post span#btn-text {
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 6px;
+}
+
+main#main-section div#share-box div#button-box button#btn-document {
+    border-right: 0;
+    padding: 26px 30px;
+}
+
+main#main-section div#share-box div#button-box button#btn-picture:hover,
+main#main-section div#share-box div#button-box button#btn-video:hover,
+main#main-section div#share-box div#button-box button#btn-document:hover {
+    background: #f3f6f8;
+}
+
+main#main-section div#link-box {
+    padding: 13px 16px;
+    background: #f3f6f8;
+    font-size: 14px;
+}
+
+main#main-section div#link-box a {
+    color: #0073b1;
+    font-weight: bold;
+    padding-right: 1px;
+}
+
+main#main-section div#link-box a:hover {
+    text-decoration: underline;
+}
+
+main#main-section div#feed-sort {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+}
+
+main#main-section div#feed-sort hr {
+    flex: 1;
+    border: 0;
+    display: block;
+    height: 1px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+main#main-section div#feed-sort button {
+    border: 0;
+    background: transparent;
+    margin-left: 15px;
+    padding-bottom: 4px;
+    cursor: pointer;
+}
+
+main#main-section div#feed-sort button span {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+main#main-section div#feed-sort button span.fas {
+    font-size: 18px;
+    padding: 0 2px;
+}
+/**************************************************************************
+    main container > main section > FEED POSTS
+**************************************************************************/
+
+main#main-section article {
+    display: flex;
+    flex-direction: column;
+    background: whitesmoke;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    margin-bottom: 8px;
+}
+
+main#main-section article div#post-author {
+    display: flex;
+    padding: 14px 14px 0;
+}
+
+main#main-section article div#post-author a {
+    flex: 1;
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+main#main-section article div#post-author > div {
+    cursor: pointer;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main#main-section article div#post-author > div:hover {
+    background: #f3f6f8;
+}
+
+main#main-section article div#post-author > div > span {
+    padding: 2px;
+    font-size: 4px;
+}
+
+main#main-section article div#post-author a > div {
+    display: flex;
+}
+
+main#main-section article div#post-author a > div img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    margin-right: 6px;
+}
+
+main#main-section article div#post-author a > div > div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1px;
+}
+
+main#main-section article div#post-author a > div > div > span {
+    line-height: 10px;
+    margin-top: 4px;
+    margin-left: 1px;
+}
+
+main#main-section article div#post-author a > div > div div strong {
+    color: #000;
+    font-size: 15px;
+}
+
+main#main-section article div#post-author a > div > div div strong:hover {
+    color: #0073b1;
+}
+
+main#main-section article div#post-author a > div > div div span span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+main#main-section article div#post-data p {
+    padding: 8px 14px 0;
+}
+
+main#main-section article div#post-data p span {
+    color: #0073b1;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+main#main-section article div#post-data p a {
+    color: #0073b1;
+    font-weight: bold;
+}
+
+main#main-section article div#post-data p#post-translation {
+    padding-left: 7px;
+}
+
+main#main-section article div#post-data p#post-translation button {
+    border: 0;
+    background: whitesmoke;
+    color: #0073b1;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding: 4px 7px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* main#main-section article div#post-data p#post-translation button:hover {
+    background-color: #e8f7ff;
+} */
+
+main#main-section article div#post-data img {
+    width: 100%;
+    cursor: pointer;
+    border-bottom: 1px solid #e6e9ec;
+    border-top: 1px solid #e6e9ec;
+}
+
+main#main-section article div#post-interactions div#interactions-amount {
+    margin: 7px 16px;
+    border-bottom: 1px solid #e6e9ec;
+    padding-bottom: 10px;
+
+    display: flex;
+    align-items: center;
+}
+
+main#main-section
+    article
+    div#post-interactions
+    div#interactions-amount
+    span.fas {
+    font-size: 8px;
+    padding: 3px;
+    margin-right: 3px;
+    border-radius: 50%;
+    color: #f3f6f8;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3), 1px -1px 0 rgba(0, 0, 0, 0.3),
+        -1px 1px 0 rgba(0, 0, 0, 0.3), 1px 1px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+main#main-section
+    article
+    div#post-interactions
+    div#interactions-amount
+    span#amount-info {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-left: 3px;
+    cursor: pointer;
+}
+
+main#main-section
+    article
+    div#post-interactions
+    div#interactions-amount
+    span#amount-info
+    span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+main#main-section
+    article
+    div#post-interactions
+    div#interactions-amount
+    span#like-icon {
+    background: #0092e0;
+}
+
+main#main-section
+    article
+    div#post-interactions
+    div#interactions-amount
+    span#heart-icon {
+    background: #f67373;
+}
+
+main#main-section article div#post-interactions div#interactions-btns {
+    margin: 4px 10px;
+    display: flex;
+}
+
+main#main-section article div#post-interactions div#interactions-btns button {
+    border: 0;
+    background: whitesmoke;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+    font-size: 14px;
+    padding: 2px 5px;
+    height: 30px;
+    margin-right: 5px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+}
+
+main#main-section
+    article
+    div#post-interactions
+    div#interactions-btns
+    button:hover {
+    background: #f1f1f1;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+main#main-section
+    article
+    div#post-interactions
+    div#interactions-btns
+    button
+    span.far {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+main#main-section
+    article
+    div#post-interactions
+    div#interactions-btns
+    button
+    span.fa-thumbs-up {
+    margin-bottom: 4px;
+}
+
+main#main-section
+    article
+    div#post-interactions
+    div#interactions-btns
+    button
+    span.fa-share-square {
+    font-size: 18px;
+}
+
+/**************************************************************************
+    main container > RIGHT ASIDE
+**************************************************************************/
+
+div.container aside#right-aside {
+    /* grid-area: right-aside; */
+    background-color: whitesmoke;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    height: 273px;
+    max-width: 350px;
+}
+
+/**************************************************************************
+    main container > right aside > RECOMMENDATIONS SECTION
+**************************************************************************/
+
+aside#right-aside div#rec-section {
+    height: 273px;
+    padding: 16px 0;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+aside#right-aside div#rec-section div header {
+    font-size: 18px;
+    padding: 13px 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+aside#right-aside div#rec-section div header span.fas {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+    position: relative;
+}
+
+aside#right-aside div#rec-section div header span.fas > span {
+    display: none;
+    position: absolute;
+    top: -4px;
+    right: 18px;
+
+    font-size: 20px;
+    color: #fff;
+    text-shadow: -1px 0 #fff, 0 1px #cfcfcf, 1px 0 #cfcfcf, 0 -1px #cfcfcf;
+}
+
+aside#right-aside div#rec-section div header span.fas div#float-info {
+    display: none;
+    position: absolute;
+    top: -22px;
+    right: 33px;
+    height: 60px;
+    width: 320px;
+
+    padding: 13px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: normal;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    line-height: 1.2;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+}
+
+aside#right-aside div#rec-section div header span.fas div#float-info a {
+    color: #0073b1;
+    font-weight: bold;
+}
+
+aside#right-aside div#rec-section div header span.fas div#square {
+    position: absolute;
+    top: -22px;
+    right: 10px;
+    height: 60px;
+    width: 30px;
+    background: transparent;
+    min-height: 1px;
+}
+
+aside#right-aside div#rec-section > div > div {
+    padding-bottom: 6px;
+}
+
+aside#right-aside div#rec-section > div > div > div {
+    display: flex;
+    align-items: center;
+    padding: 0 10px 3px;
+}
+
+aside#right-aside div#rec-section > div > div > div img {
+    width: 48px;
+    height: 48px;
+    border: 4px solid transparent;
+    border-radius: 2px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+aside#right-aside div#rec-section > div > div > div > div {
+    /* display: flex;
+    flex-direction: column;
+    flex: 1; */
+    padding-top: 10px;
+    padding-right: 5px;
+    font-size: 12px;
+}
+
+aside#right-aside div#rec-section > div > div > div > div strong {
+    font-size: 14px;
+    padding-bottom: 3px;
+    cursor: pointer;
+}
+
+aside#right-aside div#rec-section > div > div > div > div small {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 14px;
+    cursor: pointer;
+}
+
+aside#right-aside div#rec-section > div > div > div button {
+    background: #fff;
+    color: #0073b1;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #0073b1;
+    border-radius: 2px;
+    height: 26px;
+    width: 80px;
+    padding: 0 6px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.2s;
+}
+
+aside#right-aside div#rec-section > div > div > div button:hover {
+    border: 2px solid #0073b1;
+    background-color: #e4f4fc;
+}
+
+aside#right-aside div#rec-section > div > div > div button span.fas {
+    padding-right: 5px;
+}
+
+aside#right-aside div#rec-section > div > a {
+    color: #0073b1;
+    font-size: 16px;
+    margin: 13px;
+}
+
+aside#right-aside div#rec-section > div > a:hover {
+    color: #016194;
+}
+
+/**************************************************************************
+    main container > right aside > LINKEDIN SECTION
+**************************************************************************/
+
+aside#right-aside div#linkedin-section section {
+    height: 279px;
+    padding: 16px 0;
+    border-bottom: 1px solid #cfcfcf;
+
+    display: flex;
+    flex-direction: column;
+}
+
+aside#right-aside div#linkedin-section section small {
+    align-self: flex-end;
+    padding-right: 15px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 2px;
+}
+
+aside#right-aside div#linkedin-section section a span {
+    color: rgba(0, 0, 0, 0.6);
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    padding: 0 12px;
+}
+
+aside#right-aside div#linkedin-section section a div {
+    display: flex;
+    justify-content: center;
+}
+
+aside#right-aside div#linkedin-section section a div img {
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+}
+
+aside#right-aside div#linkedin-section section a div img#linkedin-key {
+    border-radius: 0;
+}
+
+aside#right-aside div#linkedin-section section a strong {
+    color: rgba(0, 0, 0, 0.7);
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    padding: 0 16px;
+    font-weight: normal;
+}
+
+aside#right-aside div#linkedin-section section a button {
+    background: #fff;
+    color: #0073b1;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid #0073b1;
+    border-radius: 2px;
+    height: 34px;
+    padding: 0 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+aside#right-aside div#linkedin-section footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    font-size: 14px;
+    color: #485d69;
+    margin: 18px 0;
+}
+
+aside#right-aside div#linkedin-section footer ul li {
+    margin: 2.5px 12px;
+    cursor: pointer;
+}
+
+aside#right-aside div#linkedin-section footer ul li:hover {
+    color: #0073b1;
+}
+
+aside#right-aside div#linkedin-section footer ul li:hover .fas {
+    color: #0073b1;
+}
+
+aside#right-aside div#linkedin-section footer ul li span {
+    padding: 4px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+aside#right-aside div#linkedin-section footer > div {
+    text-align: center;
+    font-size: 14px;
+}
+
+aside#right-aside div#linkedin-section footer > div > strong span {
+    background: #0073b1;
+    color: #fff;
+    padding: 0 2px;
+    border-radius: 2px;
+    margin: 1px;
+    font-size: 12px;
+}
+
+aside#right-aside div#linkedin-section footer > div > span {
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+

@@ -6,15 +6,17 @@ import { HomeComponent } from './home/home.component';
 import { JobDetailsComponent } from './jobs/job-details/job-details.component';
 import { JobsListComponent } from './jobs/jobs-list/jobs-list.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { PostsComponent } from './posts/posts.component';
 
 const routes: Routes = [
   {path : '',component : HomeComponent},
   {path : 'signup',component : SignupComponent},
   {path : 'signin',component : LoginComponent},
-  {path : 'profile',component : ProfileComponent},
   {path : 'jobs', component : JobsListComponent,children : [
     {path : 'id', component : JobDetailsComponent}
-  ]}
+  ]},
+  {path: 'profile',component : ProfileComponent},
+  {path: 'posts',component : PostsComponent}
 
 ];
 
