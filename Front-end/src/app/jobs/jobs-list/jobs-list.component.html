@@ -1,0 +1,76 @@
+<div class="jobs_wrapper">
+    <app-sidebar></app-sidebar>
+    <div class="jobs_container">
+        <div class="options1">
+            <div class="find">
+                <form (ngSubmit)="onFindJobs()" #f="ngForm">
+                    <div class="search">
+                        <input type="text" name="search" ngModel placeholder="Search by title..."><i class="fas fa-search"></i>
+                    </div>
+                    <div class="search">
+                        <input type="text" name="location" ngModel placeholder="Location..."><i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="search_button">
+                        <button type="submit">Find</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div *ngIf="userType == 'GRADUATE' " class="add_job">
+                <mat-checkbox
+                    [color]="'primary'"
+                    [(ngModel)]="checked">
+                    Your offers
+                </mat-checkbox>
+                <button (click)="onDisplayForm()" >Create Job Offer</button>
+            </div>
+        </div>
+        <div class="options2">
+            <div class="opt">
+                <select name="date" id="date">
+                    <option >Publication Date</option>
+                    <option value="">Last 24 Hours</option>
+                    <option value="">This week</option>
+                    <option value="">This month</option>
+                </select>
+            </div>
+            <div class="opt">
+                <select name="type" id="type">
+                    <option >Job Type</option>
+                    <option value="">Last 24 Hours</option>
+                    <option value="">This week</option>
+                    <option value="">This month</option>
+                </select>
+            </div>
+            <div class="opt">
+                <select name="enterprise" id="enterprise">
+                    <option >Enterprise</option>
+                    <option value="">Last 24 Hours</option>
+                    <option value="">This week</option>
+                    <option value="">This month</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="content_wrapper">
+            <div class="jobs_content">
+                <div class="jobs_list">
+                    <div class="list">
+                        
+                        <div>
+                            <app-job-description></app-job-description>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="jobs_details">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <app-job-form [hidden]="hideForm" (hideMe)="hideForm = true" ></app-job-form>
+    </div>
+</div>
+

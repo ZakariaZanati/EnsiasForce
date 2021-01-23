@@ -1,0 +1,134 @@
+.jobs_wrapper{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.jobs_container{
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+option:first-child{
+	display: none;
+}
+
+.options1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    color: #7E7E7E;
+}
+
+.options1 .find {
+    width: 50%;
+}
+
+.options1 form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.options1 .add_job button{
+    margin-left: 20px;
+}
+
+.options2{
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.search{
+    position: relative;
+}
+.search input{
+    border: none;
+    width: 150px;
+    padding: 6px 15px;
+    height: 35px;
+    color: #7E7E7E;
+    background: #E1E1E1;
+    border: 2px solid #FF0000;
+}
+
+.search i {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+
+i{
+    color: red;
+}
+
+.search_button button{
+    background: #FF0000;
+    border-radius: 20px;
+    color: white;
+    width: 90px;
+    height: 35px;
+    outline: none;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.add_job button{
+    width: 155px;
+    height: 35px;
+    color: red;
+    background-color: white;
+    border-radius: 15px;
+    border: 4px solid red;
+    cursor: pointer;
+}
+
+.add_job button:hover{
+    background-color: whitesmoke;
+}
+
+.options2 select{
+    border: none;
+    width: 180px;
+    padding: 6px 15px;
+    height: 35px;
+    background: #C4C4C4;
+    border: 4px solid #FF0000;
+    color: white;
+    border-radius: 30px;
+}
+
+.content_wrapper{
+    background-color: whitesmoke;
+}
+
+.jobs_content{
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 5px;
+    height: 600px;
+    padding: 10px 0;
+    border: 1px solid grey;
+}
+
+.jobs_list,.jobs_details{
+    background-color: white;
+    overflow-y: scroll;
+}
+
+.hide{
+    display: none;
+}
+
+

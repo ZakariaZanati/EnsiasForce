@@ -1,0 +1,103 @@
+<div class="content_wrapper">
+    <div class="form_title">
+        <div>Add Job Offer</div>
+        <div style="cursor: pointer;" (click)="hideForm()"><i class="fas fa-times"></i></div>
+    </div>
+    <div class="job_form">
+        <form (ngSubmit)="onSubmit()" #f="ngForm">
+
+            <div class="section1">
+                <div class="image">
+
+                </div>
+                <div>
+                    <div class="form_element">
+                        <label for="post">Post Name*</label>
+                        <input 
+                            type="text"
+                            id="post"
+                            ngModel
+                            name="post"
+                            required>
+                    </div>
+                    <div class="form_element">
+                        <label for="enterprise">Enterprise *</label>
+                        <input 
+                            type="text"
+                            id="enterprise"
+                            ngModel
+                            name="enterprise"
+                            required>
+                    </div>
+                </div>
+            </div>
+            <div class="section2">
+                <div class="form_element">
+                    <label for="location">Job location *</label>
+                    <input 
+                        type="text"
+                        id="location"
+                        ngModel
+                        name="location"
+                        required>
+                </div>
+                <div class="form_element">
+                    <label for="type">Employment type *</label><br>
+                    <select
+                        id="type"
+                        ngModel
+                        name="contractType">
+                        <option value="full-time">Full-time</option>
+                        <option value="part-time">Part-time</option>
+                        <option value="trainee">Trainee</option>
+                        <option value="temporary">Temporary job</option>
+                        <option value="freelance">Freelance</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form_element">
+                <label for="description">Description *</label>
+                <textarea
+                  name="description"
+                  rows="3"
+                  class="form-control"
+                  required
+                  ngModel></textarea>
+            </div>
+            <div class="form_element">
+                <label for="qualifications">Qualifications</label>
+                <textarea
+                  name="qualifications"
+                  rows="3"
+                  class="form-control"
+                  ngModel></textarea>
+            </div>
+            <div class="section2">
+                <div class="form_element">
+                    <label for="salary">Salary range</label><br>
+                    <input 
+                        type="text"
+                        id="salary"
+                        ngModel
+                        name="salary">
+                </div>
+                <div class="form_element">
+                    <label for="link">Link to apply</label><br>
+                    <input 
+                        type="text"
+                        id="link"
+                        ngModel
+                        name="link">
+                </div>
+            </div>
+            <div class="form_element">
+                <label for="expirationDate">Expiration Date </label><br>
+                <input name="expirationDate" placeholder="yyyy-mm-dd" type="date" ngModel>
+            </div>
+            <div class="button">
+                <button class="form_button" type="submit" [disabled]="!f.valid ">Create Offer</button>
+            </div>
+        </form>
+    </div>
+</div>

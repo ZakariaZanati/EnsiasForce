@@ -15,7 +15,7 @@
 }
 
 .one {
-    width: 300px;
+    width: 315px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -37,9 +37,15 @@
 
 
 .one .logo{
-    font-size: 20px;
-    padding-right: 8px;
-    border-right: 1px solid gray;
+    background-image: url('../../assets/logo_app.png');
+    display: flex;
+    align-items: center;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 140px;
+    height: 50px;
+    margin-right: 10px;
 }
 
 .one .title{

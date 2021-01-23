@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 
 import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
+import {MatSelectModule} from '@angular/material/select'; 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,6 +19,10 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { ExperienceComponent } from './user/experience/experience.component';
 import { FormationComponent } from './user/formation/formation.component';
 import { SkillsComponent } from './user/skills/skills.component';
+import { JobsListComponent } from './jobs/jobs-list/jobs-list.component';
+import { JobDescriptionComponent } from './jobs/job-description/job-description.component';
+import { JobDetailsComponent } from './jobs/job-details/job-details.component';
+import { JobFormComponent } from './jobs/job-form/job-form.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +35,20 @@ import { SkillsComponent } from './user/skills/skills.component';
     ProfileComponent,
     ExperienceComponent,
     FormationComponent,
-    SkillsComponent
+    SkillsComponent,
+    JobsListComponent,
+    JobDescriptionComponent,
+    JobDetailsComponent,
+    JobFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
