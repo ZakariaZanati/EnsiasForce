@@ -16,6 +16,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { ExperienceComponent } from './user/experience/experience.component';
 import { FormationComponent } from './user/formation/formation.component';
 import { SkillsComponent } from './user/skills/skills.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SkillsComponent } from './user/skills/skills.component';
     ProfileComponent,
     ExperienceComponent,
     FormationComponent,
-    SkillsComponent
+    SkillsComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
