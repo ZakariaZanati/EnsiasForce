@@ -1,12 +1,13 @@
 spring:
   cloud:
     gateway:
-      routes:
-        - id: r1
-          uri: http://localhost:8081/
-          predicates:
-           - Path = /users/**
-        - id: r2
-          uri: http://localhost:8082/
-          predicates:
-            - Path = /jobs/**
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowCredentials: true
+            allowedMethods:
+              - GET
+              - POST
+            allowedHeaders: "authorization"

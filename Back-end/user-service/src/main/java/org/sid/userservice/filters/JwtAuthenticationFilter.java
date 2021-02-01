@@ -4,6 +4,8 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import org.sid.userservice.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -25,11 +27,11 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-
 @AllArgsConstructor
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 
     private final AuthenticationManager authenticationManager;
+    private final UserRepository userRepository;
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
@@ -56,13 +58,28 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .sign(algorithm);
         String jwtRefreshToken = JWT.create()
                 .withSubject(user.getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis()+15*60*1000))
+                .withExpiresAt(new Date(System.currentTimeMillis()+48*60*60*1000))
                 .withIssuer(request.getRequestURL().toString())
                 .sign(algorithm);
+
+        org.sid.userservice.entity.User currentUser = userRepository.findByEmail(user.getUsername());
+
         Map<String,String> idToken = new HashMap<>();
-        idToken.put("access-token",jwtAccessToken);
-        idToken.put("refresh-token",jwtRefreshToken);
+        idToken.put("authenticationToken",jwtAccessToken);
+        idToken.put("refreshToken",jwtRefreshToken);
+        idToken.put("email",user.getUsername());
+        idToken.put("fullName",currentUser.getFullName());
+        idToken.put("userType",currentUser.getRoles().stream().findFirst().get().getRoleName());
+        idToken.put("completed","false");
+        idToken.put("expiresAt",Instant.now().plusMillis(5*60*1000).toString());
         response.setContentType("application/json");
+        final String origin = "http://localhost:4200";
+
+        response.addHeader("Access-Control-Allow-Origin", origin);
+        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Headers",
+                "content-type, x-gwt-module-base, x-gwt-permutation, clientid, longpush");
         new ObjectMapper().writeValue(response.getOutputStream(),idToken);
     }
 

@@ -1,11 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox'; 
 import {MatSelectModule} from '@angular/material/select'; 
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+import {NgxWebstorageModule} from 'ngx-webstorage';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +27,10 @@ import { JobDescriptionComponent } from './jobs/job-description/job-description.
 import { JobDetailsComponent } from './jobs/job-details/job-details.component';
 import { JobFormComponent } from './jobs/job-form/job-form.component';
 import { PostsComponent } from './posts/posts.component';
+import { DetailsFormComponent } from './user/details-form/details-form.component';
+import {TokenInterceptor} from './token-interceptor';
+
+
 
 @NgModule({
   declarations: [
@@ -41,7 +48,8 @@ import { PostsComponent } from './posts/posts.component';
     JobDescriptionComponent,
     JobDetailsComponent,
     JobFormComponent,
-    PostsComponent
+    PostsComponent,
+    DetailsFormComponent
   ],
   imports: [
     BrowserModule,
@@ -50,9 +58,18 @@ import { PostsComponent } from './posts/posts.component';
     BrowserAnimationsModule,
     MatRadioModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    HttpClientModule,
+    NgxWebstorageModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : TokenInterceptor,
+      multi : true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

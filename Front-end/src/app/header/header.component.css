@@ -2,6 +2,11 @@
     width: 100%;
     height: 70px;
     border-bottom: 3px solid red;
+    position: sticky;
+    position: -webkit-sticky;
+    z-index: 1000;
+    top: 0;
+    background-color: white;
 }
 
 .header_content{
@@ -15,7 +20,7 @@
 }
 
 .one {
-    width: 315px;
+    width: 335px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -29,7 +34,7 @@
     align-items: center;
 }
 
-.two a {
+a {
     text-decoration: none;
     color: #858585;
     outline: none;
@@ -52,5 +57,44 @@
     font-size: 32px;
     cursor: pointer;
     outline: none;
+}
+
+.three{
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logout{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.icon{
+    background-image: url('../../assets/logout.png');
+    background-position: center;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+}
+
+.profile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+    cursor: pointer;
+}
+
+.image{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: black;
 }
 

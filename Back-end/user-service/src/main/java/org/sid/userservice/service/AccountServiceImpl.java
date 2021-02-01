@@ -22,10 +22,16 @@ public class AccountServiceImpl implements AccountService {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public User addNewUser(User user) {
+    public void addNewUser(User user) throws Exception {
         String password = user.getPassword();
         user.setPassword(passwordEncoder.encode(password));
-        return userRepository.save(user);
+        User existingUser = userRepository.findByEmail(user.getEmail());
+        if (existingUser != null){
+            throw new Exception(
+                    "There is an account with that email address or username: "
+                            +  user.getEmail());
+        }
+        userRepository.save(user);
     }
 
     @Override
@@ -50,50 +56,4 @@ public class AccountServiceImpl implements AccountService {
         return userRepository.findAll();
     }
 
-    /*
-    @Override
-    public AuthenticationResponse loginUser(LoginRequest loginRequest) {
-        System.out.println("fdfffffffffffffffffffffffff");
-        try {
-            Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),loginRequest.getPassword()));
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-            String token = jwtAuthenticationFilter.generateToken(authentication);
-            System.out.println(token);
-            return AuthenticationResponse.builder()
-                    .authenticationToken(token)
-                    .refreshToken(refreshTokenService.generateRefreshToken().getToken())
-                    .expiresAt(Instant.now().plusMillis(5*60*1000))
-                    .email(loginRequest.getEmail())
-                    .fullName(getCurrentUser().getFullName())
-                    .build();
-        }catch (Exception e){
-            System.out.println("Error");
-        }
-        return null;
-
-    }
-
-     */
-
-    /*
-    public AuthenticationResponse refreshToken(RefreshTokenRequest refreshTokenRequest) throws Exception {
-        refreshTokenService.validateRefreshToken(refreshTokenRequest.getRefreshToken());
-        String token = jwtAuthenticationFilter.generateTokenWithEmail(refreshTokenRequest.getEmail());
-        return AuthenticationResponse.builder()
-                .authenticationToken(token)
-                .refreshToken(refreshTokenRequest.getRefreshToken())
-                .expiresAt(Instant.now().plusMillis(5*60*1000))
-                .email(refreshTokenRequest.getEmail())
-                .build();
-    }
-
-     */
-    /*
-    public User getCurrentUser() {
-        org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.
-                getContext().getAuthentication().getPrincipal();
-        return userRepository.findByEmail(principal.getUsername());
-    }
-
-     */
 }

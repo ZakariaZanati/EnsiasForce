@@ -5,10 +5,10 @@
     <div class="two">
         <div class="title"></div>
         <div class="signup_form">
-            <form #signupForm="ngForm" >
+            <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
                 <div class="header">
-                    <div class="alert alert-danger" *ngIf="">
-                        <p></p>
+                    <div class="alert alert-danger" *ngIf="isError">
+                        <p> Incorrect Email or Password </p>
                     </div>
                 </div>
                 <div class="input_section">

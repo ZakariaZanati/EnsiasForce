@@ -1,0 +1,86 @@
+<div class="user_details_wrapper">
+    <app-sidebar></app-sidebar>
+    <div class="user_details_content">
+        <div class="headers">
+            <div class="title">Personnal informations</div>
+            <div class="header">Please complete your profile</div>
+        </div>
+        <div class="signup_form">
+            <form #detailsForm = "ngForm" >
+
+                <div class="form_fields">
+                    <div class="input_section">
+                        <div class="label"> <label for="fullname">Full name </label> </div>
+                        <input 
+                            type="text" 
+                            name="fullname" 
+                            id="fullname"
+                            ngModel
+                            required
+                            minlength="6">
+                    </div>
+                    <div class="input_section">
+                        <div class="label"> <label for="email">Email </label> </div>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email"
+                            ngModel
+                            required
+                            email>
+                    </div>
+                    <div class="input_section">
+                        <div class="label"> <label for="status">Status </label> </div>
+                        <input 
+                            type="text" 
+                            name="status" 
+                            id="status"
+                            placeholder="Ex: Looking for a job"
+                            ngModel
+                            required
+                            minlength="4">
+                    </div>
+                    <div class="input_section">
+                        <div class="label"> <label for="phone">Phone number </label> </div>
+                        <input 
+                            type="text" 
+                            name="phone" 
+                            id="phone"
+                            ngModel>
+                    </div>
+                    <div class="input_section">
+                        <div class="label"> <label for="city">City </label> </div>
+                        <input 
+                            type="text" 
+                            name="city" 
+                            id="city"
+                            ngModel>
+                    </div>
+                    <div class="input_section">
+                        <div class="label"> <label for="country">Country </label> </div>
+                        <input 
+                            type="text" 
+                            name="country" 
+                            id="country"
+                            ngModel>
+                    </div>
+                    <div class="input_section">
+                        <div class="label"> <label for="birthdate">Birth date </label> </div>
+                        <input 
+                            type="date" 
+                            name="birthdate" 
+                            id="birthdate"
+                            ngModel>
+                    </div>
+                </div>
+                
+                <div class="footer">
+                    <div class="submit">
+                        <button type="submit" [disabled]="!detailsForm.valid" >SUBMIT</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

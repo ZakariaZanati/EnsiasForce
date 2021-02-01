@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.sid.userservice.entity.User;
 import org.sid.userservice.filters.JwtAuthenticationFilter;
 import org.sid.userservice.filters.JwtAuthorizationFilter;
+import org.sid.userservice.repository.UserRepository;
 import org.sid.userservice.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,13 +25,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import java.util.ArrayList;
 import java.util.Collection;
 
-@Configuration
 @EnableWebSecurity
 @AllArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     private final AccountService accountService;
+    private final UserRepository userRepository;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -49,10 +50,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.headers().frameOptions().disable();
-        http.authorizeRequests().antMatchers("/refreshToken/**").permitAll();
-        http.authorizeRequests().anyRequest().authenticated();
-        http.addFilter(new JwtAuthenticationFilter(authenticationManagerBean()));
+        http.authorizeRequests()
+                .antMatchers("/refreshToken/**","/signup/**","/addRoleToUser/**","/login/**")
+                .permitAll()
+                .antMatchers("/v2/api-docs",
+                        "/configuration/ui",
+                        "/swagger-resources/**",
+                        "/configuration/security",
+                        "/swagger-ui.html",
+                        "/webjars/**")
+                .permitAll()
+                .anyRequest()
+                .authenticated();
+        http.cors();
+        http.addFilter(new JwtAuthenticationFilter(authenticationManagerBean(),userRepository));
         http.addFilterBefore(new JwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+
     }
 
 

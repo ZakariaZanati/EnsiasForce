@@ -5,4 +5,4 @@
     box-sizing: border-box;
     font-family: 'Righteous', cursive;
 }
-html,body { min-height: 100%; }
+html,body { height: 100vmin; }

@@ -2,13 +2,13 @@
     <div class="one">
         <div class="title">Sign Up And Join Our Community</div>
         <div class="signup_form">
-            <form #signupForm="ngForm" >
+            <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
                 <div class="header">
-                    <div class="alert alert-danger" *ngIf="">
-                        <p></p>
+                    <div class="alert alert-danger" *ngIf="isError">
+                        <p> {{error}} </p>
                     </div>
                 </div>
-                <div class="input_section">
+                <div class="input_section" >
                     <div class="label"> <label for="userType">User Type </label> </div>
                     <div class="radio_buttons">
                         <div>
@@ -55,8 +55,7 @@
                         name="fullname" 
                         id="fullname"
                         ngModel
-                        required
-                        minlength="6">
+                        required>
                 </div>
                 <div class="input_section">
                     <div class="label"> <label for="password">Password </label> </div>

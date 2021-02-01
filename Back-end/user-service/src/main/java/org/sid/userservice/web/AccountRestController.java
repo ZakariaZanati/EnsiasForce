@@ -6,30 +6,40 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import org.sid.userservice.dto.RefreshTokenRequest;
 import org.sid.userservice.dto.RoleUserForm;
 import org.sid.userservice.entity.Role;
 import org.sid.userservice.entity.User;
 import org.sid.userservice.service.AccountService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.io.IOException;
+import java.time.Instant;
 import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
+@CrossOrigin
 public class AccountRestController {
 
     private final AccountService accountService;
 
-    @PostMapping("/users")
-    public User saveUser(@RequestBody User user){
-        return accountService.addNewUser(user);
+    @PostMapping("/signup")
+    public ResponseEntity<String> saveUser(@RequestBody User user){
+
+        try {
+            System.out.println(user);
+            accountService.addNewUser(user);
+            return new ResponseEntity<>("User Registration Successful", HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>("Registration failed",HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PostMapping("/role")
@@ -43,13 +53,15 @@ public class AccountRestController {
     }
 
     @PostMapping("/addRoleToUser")
-    public void addRoleToUser(@RequestBody RoleUserForm roleUserForm){
+    public String addRoleToUser(@RequestBody RoleUserForm roleUserForm){
         accountService.addRoleToUser(roleUserForm.getEmail(),roleUserForm.getRoleName());
+        return "Role added successfully";
     }
 
-    @GetMapping("/refreshToken")
-    public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String authToken = request.getHeader("Authorization");
+    @PostMapping("/refreshToken")
+    public void refreshToken(@Valid @RequestBody RefreshTokenRequest refreshTokenRequest,HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String authToken = refreshTokenRequest.getRefreshToken();
+
         if (authToken != null && authToken.startsWith("Bearer ")){
             try{
                 String refreshToken = authToken.substring(7);
@@ -65,8 +77,14 @@ public class AccountRestController {
                         .withClaim("roles",user.getRoles().stream().map(Role::getRoleName).collect(Collectors.toList()))
                         .sign(algorithm);
                 Map<String,String> idToken = new HashMap<>();
-                idToken.put("access-token",jwtAccessToken);
-                idToken.put("refresh-token",refreshToken);
+
+                idToken.put("authenticationToken",jwtAccessToken);
+                idToken.put("refreshToken",refreshToken);
+                idToken.put("email",user.getEmail());
+                idToken.put("fullName",user.getFullName());
+                idToken.put("userType",user.getRoles().stream().findFirst().toString());
+                idToken.put("completed",user.getCompleted().toString());
+                idToken.put("expiresAt", Instant.now().plusMillis(5*60*1000).toString());
                 response.setContentType("application/json");
                 new ObjectMapper().writeValue(response.getOutputStream(),idToken);
             }catch (Exception e){

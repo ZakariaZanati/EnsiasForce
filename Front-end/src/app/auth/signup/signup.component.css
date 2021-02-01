@@ -2,7 +2,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    height: 95%;
+    height: 100%;
 }
 
 .one{
@@ -106,6 +106,7 @@
     outline: none;
     border: 2px solid red;
     font-size: 1.4em;
+    cursor: pointer;
 }
 
 .footer button:hover{
