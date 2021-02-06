@@ -40,6 +40,10 @@ public class User {
     private String country;
 
     private Date birthDate;
+
+    @Lob
+    private byte[] image;
+
     @ManyToMany(fetch = FetchType.EAGER)
     Collection<Role> roles = new ArrayList<>();
 }

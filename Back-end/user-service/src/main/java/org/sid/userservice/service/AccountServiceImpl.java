@@ -5,6 +5,7 @@ import org.sid.userservice.entity.Role;
 import org.sid.userservice.entity.User;
 import org.sid.userservice.repository.RoleRepository;
 import org.sid.userservice.repository.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,6 +55,12 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public List<User> listUsers() {
         return userRepository.findAll();
+    }
+
+    public User getCurrentUser(){
+        org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder
+                .getContext().getAuthentication().getPrincipal();
+        return userRepository.findByEmail(principal.getUsername());
     }
 
 }

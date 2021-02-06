@@ -12,4 +12,5 @@ public interface AccountService {
     void addRoleToUser(String email, String roleName);
     User loadUserByEmail(String email);
     List<User> listUsers();
+    User getCurrentUser();
 }
