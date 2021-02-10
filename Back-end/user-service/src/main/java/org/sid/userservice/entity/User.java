@@ -45,5 +45,14 @@ public class User {
     private byte[] image;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    Collection<Role> roles = new ArrayList<>();
+    private Collection<Role> roles = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private Collection<Experience> experiences = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private Collection<Formation> formations = new ArrayList<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<Skill> skills = new ArrayList<>();
 }
