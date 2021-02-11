@@ -58,9 +58,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     public User getCurrentUser(){
-        org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder
-                .getContext().getAuthentication().getPrincipal();
-        return userRepository.findByEmail(principal.getUsername());
+        return userRepository.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName());
     }
 
 }

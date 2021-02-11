@@ -53,6 +53,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Collection<Formation> formations = new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     private Collection<Skill> skills = new ArrayList<>();
 }

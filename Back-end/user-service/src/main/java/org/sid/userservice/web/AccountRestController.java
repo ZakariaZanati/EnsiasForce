@@ -86,6 +86,13 @@ public class AccountRestController {
                 idToken.put("completed",user.getCompleted().toString());
                 idToken.put("expiresAt", Instant.now().plusMillis(5*60*1000).toString());
                 response.setContentType("application/json");
+                final String origin = "http://localhost:4200";
+
+                response.addHeader("Access-Control-Allow-Origin", origin);
+                response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+                response.setHeader("Access-Control-Allow-Credentials", "true");
+                response.setHeader("Access-Control-Allow-Headers",
+                        "content-type, x-gwt-module-base, x-gwt-permutation, clientid, longpush");
                 new ObjectMapper().writeValue(response.getOutputStream(),idToken);
             }catch (Exception e){
                 throw e;

@@ -1,7 +1,7 @@
 export class SignupRequestPayload {
     status : string;
-    password : String;
-    email : String;
+    password : string;
+    email : string;
     fullName : string;
     completed : boolean
 }

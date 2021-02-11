@@ -3,19 +3,18 @@
     <div class="user_details_content">
         <div class="headers">
             <div class="title">Personnal informations</div>
-            <div class="header">Please complete your profile</div>
+            <div *ngIf="!completed" class="header">Please complete your profile</div>
         </div>
         <div class="signup_form">
-            <form #detailsForm = "ngForm" >
-
+            <form #detailsForm = "ngForm" (ngSubmit)="onSubmit(detailsForm)">
                 <div class="form_fields">
                     <div class="input_section">
-                        <div class="label"> <label for="fullname">Full name </label> </div>
+                        <div class="label"> <label for="fullName">Full name </label> </div>
                         <input 
                             type="text" 
-                            name="fullname" 
-                            id="fullname"
-                            ngModel
+                            name="fullName" 
+                            id="fullName"
+                            ngModel = "{{this.userDetailsPayload.fullName}}"
                             required
                             minlength="6">
                     </div>
@@ -25,7 +24,7 @@
                             type="email" 
                             name="email" 
                             id="email"
-                            ngModel
+                            ngModel = "{{this.userDetailsPayload.email}}"
                             required
                             email>
                     </div>
@@ -36,17 +35,17 @@
                             name="status" 
                             id="status"
                             placeholder="Ex: Looking for a job"
-                            ngModel
+                            ngModel= "{{this.userDetailsPayload.status}}"
                             required
                             minlength="4">
                     </div>
                     <div class="input_section">
-                        <div class="label"> <label for="phone">Phone number </label> </div>
+                        <div class="label"> <label for="phoneNumber">Phone number </label> </div>
                         <input 
                             type="text" 
-                            name="phone" 
-                            id="phone"
-                            ngModel>
+                            name="phoneNumber" 
+                            id="phoneNumber"
+                            ngModel= "{{this.userDetailsPayload.phoneNumber}}">
                     </div>
                     <div class="input_section">
                         <div class="label"> <label for="city">City </label> </div>
@@ -54,7 +53,7 @@
                             type="text" 
                             name="city" 
                             id="city"
-                            ngModel>
+                            ngModel= "{{this.userDetailsPayload.city}}">
                     </div>
                     <div class="input_section">
                         <div class="label"> <label for="country">Country </label> </div>
@@ -62,15 +61,15 @@
                             type="text" 
                             name="country" 
                             id="country"
-                            ngModel>
+                            ngModel= "{{this.userDetailsPayload.country}}">
                     </div>
                     <div class="input_section">
-                        <div class="label"> <label for="birthdate">Birth date </label> </div>
+                        <div class="label"> <label for="birthDate">Birth date </label> </div>
                         <input 
                             type="date" 
-                            name="birthdate" 
-                            id="birthdate"
-                            ngModel>
+                            name="birthDate" 
+                            id="birthDate"
+                            ngModel= "{{this.userDetailsPayload.birthDate}}">
                     </div>
                 </div>
                 

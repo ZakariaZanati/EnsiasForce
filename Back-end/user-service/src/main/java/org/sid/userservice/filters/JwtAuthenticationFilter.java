@@ -52,7 +52,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         Algorithm algorithm = Algorithm.HMAC256("mySecret1234");
         String jwtAccessToken = JWT.create()
                 .withSubject(user.getUsername())
-                .withExpiresAt(new Date(System.currentTimeMillis()+5*60*1000))
+                .withExpiresAt(new Date(System.currentTimeMillis()+48*60*60*1000))
                 .withIssuer(request.getRequestURL().toString())
                 .withClaim("roles",user.getAuthorities().stream().map((Function<GrantedAuthority, Object>) GrantedAuthority::getAuthority).collect(Collectors.toList()))
                 .sign(algorithm);
@@ -71,7 +71,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         idToken.put("fullName",currentUser.getFullName());
         idToken.put("userType",currentUser.getRoles().stream().findFirst().get().getRoleName());
         idToken.put("completed","false");
-        idToken.put("expiresAt",Instant.now().plusMillis(5*60*1000).toString());
+        idToken.put("expiresAt",Instant.now().plusMillis(48*60*60*1000).toString());
         response.setContentType("application/json");
         final String origin = "http://localhost:4200";
 

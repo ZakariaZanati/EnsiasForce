@@ -2,6 +2,7 @@ package org.sid.userservice.web;
 
 import lombok.AllArgsConstructor;
 import org.sid.userservice.dto.UserDetailsDto;
+import org.sid.userservice.entity.User;
 import org.sid.userservice.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,7 @@ public class UserRestController {
 
     @GetMapping
     public UserDetailsDto getCurrentUserDetails(){
+        System.out.println("test tes test");
         return userService.LoadUserDetails();
     }
 
@@ -29,10 +31,11 @@ public class UserRestController {
 
     @PostMapping
     public void saveCurrentUserDetails(@RequestBody UserDetailsDto userDetailsDto){
+        System.out.println(userDetailsDto);
         userService.saveUserDetails(userDetailsDto);
     }
 
-    @GetMapping("/img")
+    @PostMapping("/img")
     public ResponseEntity<byte[]> saveUserImage(@RequestParam("imageFile") MultipartFile imageFile) throws IOException {
         return ResponseEntity.status(HttpStatus.OK).body(userService.saveUserImage(imageFile.getBytes()));
     }

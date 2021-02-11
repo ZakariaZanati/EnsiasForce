@@ -19,7 +19,7 @@ export class AuthService {
   @Output() fullName : EventEmitter<String> = new EventEmitter<String>();
 
   url : string = "http://localhost:8888/USER-SERVICE";
-  url2 = "http://localhost:8081"
+  url2 : string = "http://localhost:8081";
 
   constructor(private http : HttpClient, private localStorage : LocalStorageService) { }
 
@@ -74,7 +74,7 @@ export class AuthService {
   }
 
   refreshToken() {
-    return this.http.post<LoginResponsePayload>(this.url+'/refreshToken',
+    return this.http.post<LoginResponsePayload>(this.url2+'/refreshToken',
       this.refreshTokenPayload)
       .pipe(tap(response => {
         this.localStorage.clear('authenticationToken');

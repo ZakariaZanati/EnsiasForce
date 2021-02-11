@@ -5,9 +5,17 @@
     <div class="profile_content">
         <div class="user_details_wrapper">
             <div class="part_one">
-
                 <div class="image">
-
+                    <div *ngIf="profileImage; else elseBlock">
+                        <img [src]="profileImage" class="img"/>
+                    </div>
+                    <ng-template #elseBlock>
+                        <img src="../../assets/defaultpng.png" class="img" alt="">
+                    </ng-template>
+                    <div class="buttons">
+                        <input type="file" id="file" (change)="onFileChanged($event)">
+                        <label for="file"><i class="fas fa-camera"></i></label>
+                    </div>
                 </div>
                 <div class="user_status">
                     <div class="name">Zakaria Zanati</div>

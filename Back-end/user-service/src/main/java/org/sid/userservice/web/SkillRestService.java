@@ -19,8 +19,8 @@ public class SkillRestService {
         return (List<Skill>) skillService.getCurrentUserSkills();
     }
 
-    @PostMapping
-    public void saveSkill(@RequestParam String skillName){
+    @GetMapping("/save")
+    public void saveUserSkill(@RequestParam String skillName){
         skillService.saveSkill(skillName);
         skillService.addSkillToUser(skillName);
     }

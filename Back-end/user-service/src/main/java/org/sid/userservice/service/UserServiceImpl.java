@@ -30,11 +30,31 @@ public class UserServiceImpl implements UserService {
     }
 
     public UserDetailsDto LoadUserDetails(){
-        return userRepository.getUserByEmail(accountService.getCurrentUser().getEmail());
+        User user = userRepository.getUserByEmail(accountService.getCurrentUser().getEmail());
+        return UserDetailsDto.builder()
+                .fullName(user.getFullName())
+                .email(user.getEmail())
+                .city(user.getCity())
+                .country(user.getCountry())
+                .birthDate(user.getBirthDate())
+                .image(user.getImage())
+                .phoneNumber(user.getPhoneNumber())
+                .status(user.getStatus())
+                .build();
     }
 
     public UserDetailsDto LoadUserDetailsById(Long id){
-        return userRepository.getUserById(id);
+        User user = userRepository.getUserById(id);
+        return UserDetailsDto.builder()
+                .fullName(user.getFullName())
+                .email(user.getEmail())
+                .city(user.getCity())
+                .country(user.getCountry())
+                .birthDate(user.getBirthDate())
+                .image(user.getImage())
+                .phoneNumber(user.getPhoneNumber())
+                .status(user.getStatus())
+                .build();
     }
 
     public byte[] saveUserImage(byte[] image){
