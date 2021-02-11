@@ -19,15 +19,15 @@ public class CourseServiceApplication {
         SpringApplication.run(CourseServiceApplication.class, args);
     }
 
-    @Bean
-    CommandLineRunner start(UserRestService userRestService,
-            CourseRepository courseRepository,
-            RepositoryRestConfiguration restConfiguration){
-        restConfiguration.exposeIdsFor(Course.class);
-        return args -> {
-            User user = userRestService.getUserById(1L);
-            System.out.println(user.toString());
-        };
-
-    }
+//    @Bean
+//    CommandLineRunner start(UserRestService userRestService,
+//            CourseRepository courseRepository,
+//            RepositoryRestConfiguration restConfiguration){
+//        restConfiguration.exposeIdsFor(Course.class);
+//        return args -> {
+//            User user = userRestService.getUserById(1L);
+//            System.out.println(user.toString());
+//        };
+//
+//    }
 }
