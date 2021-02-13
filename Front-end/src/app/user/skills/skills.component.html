@@ -5,26 +5,26 @@
     </div>
     <div class="skills_form" *ngIf="displayForm">
         <div class="form_container">
-            <form>
+            <form #skillForm="ngForm" (ngSubmit)="onSubmit(skillForm)" >
                 <div class="input_section">
                     <input 
                         type="text" 
-                        name="post" 
-                        id="post"
+                        name="name" 
+                        id="name"
                         placeholder="add skill ..."
                         ngModel
-                        required
-                        minlength="4">
+                        required>
+                </div>
+                <div class="form_footer">
+                    <button>Add</button>
                 </div>
             </form>
         </div>
-        <div class="form_footer">
-            <button>Add</button>
-        </div>
+        
     </div>
     <div class="skills_details">
-        <div class="details" *ngFor="let skill of skills">
-            <div class="skill">{{skill}}</div>
+        <div class="details" *ngFor="let skill of skills2">
+            <div class="skill">{{skill.skillName}}</div>
         </div>
     </div>
 </div>

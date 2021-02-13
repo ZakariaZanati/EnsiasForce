@@ -9,23 +9,23 @@
             <div style="cursor: pointer;" (click)="showForm()"><i class="fas fa-times"></i></div>
         </div>
         <div class="form_container">
-            <form>
+            <form #formationForm = "ngForm" (ngSubmit)="onSubmit(formationForm)">
                 <div class="input_section">
-                    <div class="label"> <label for="post">Degree </label> </div>
+                    <div class="label"> <label for="degree">Degree </label> </div>
                     <input 
                         type="text" 
-                        name="post" 
-                        id="post"
+                        name="degree" 
+                        id="degree"
                         ngModel
                         required
                         minlength="4">
                 </div>
                 <div class="input_section">
-                    <div class="label"> <label for="enterprise">School / University </label> </div>
+                    <div class="label"> <label for="school">School / University </label> </div>
                     <input 
                         type="text" 
-                        name="enterprise" 
-                        id="enterprise"
+                        name="school" 
+                        id="school"
                         ngModel
                         required
                         minlength="4">
@@ -50,7 +50,7 @@
                             id="debut_month"
                             ngModel
                             required
-                            minlength="4">
+                            minlength="3">
                         <div class="label"> <label for="debut_year">Year </label> </div>
                         <input 
                             type="text" 
@@ -72,7 +72,7 @@
                             id="end_month"
                             ngModel
                             required
-                            minlength="4">
+                            minlength="3">
                         <div class="label"> <label for="end_year">Year </label> </div>
                         <input 
                             type="text" 
@@ -84,19 +84,20 @@
                     </div>
                     
                 </div>
+                <div class="form_footer">
+                    <button type="submit">Add</button>
+                </div>
             </form>
         </div>
-        <div class="form_footer">
-            <button>Add</button>
-        </div>
+        
     </div>
-    <div class="experience_details">
+    <div *ngFor="let formation of formations" class="experience_details">
         <div class="image"></div>
         <div class="details">
-            <div class="name">Genie Logiciel</div>
-            <div class="enterprise">ENSIAS</div>
-            <div class="duration">Septembre 2018 - Today</div>
-            <div class="location">Rabat, Morocco</div>
+            <div class="name"> {{formation.degree}} </div>
+            <div class="enterprise">{{formation.school}}</div>
+            <div class="duration"> {{formation.startDate}} - {{formation.endDate}}</div>
+            <div class="location"> {{formation.location}} </div>
         </div>
     </div>
 </div>

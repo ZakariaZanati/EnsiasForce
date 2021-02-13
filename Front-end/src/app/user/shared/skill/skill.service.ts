@@ -14,8 +14,8 @@ export class SkillService {
 
   addUserSkill(skillName : string){
     let param = new HttpParams();
-    param.append('skillName',skillName);
-    return this.http.get(this.url2,{params : param})
+    param = param.append('skillName',skillName);
+    return this.http.get(this.url2+"/save",{params : param})
   }
 
   getCurrentUserSkills():Observable<string[]>{

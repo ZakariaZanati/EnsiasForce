@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { UserDetailsPayload } from '../shared/user-details.payload';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -14,14 +15,17 @@ export class ProfileComponent implements OnInit {
   profileImage : any;
   selectedFile : File;
 
-  constructor(private userService : UserService) { }
+  constructor(private userService : UserService, private router : Router) { }
 
   ngOnInit(): void {
 
     this.userService.getCurrentUserDetails().subscribe(data => {
       this.userDetailsPayload = data;
       this.base64data = this.userDetailsPayload.image;
-      this.profileImage = 'data:image/jpeg;base64,' + this.base64data;
+      if(this.base64data){
+        this.profileImage = 'data:image/jpeg;base64,' + this.base64data;
+      }
+      
     })
 
   }
@@ -30,7 +34,7 @@ export class ProfileComponent implements OnInit {
     //Select File
     this.selectedFile = event.target.files[0];
     this.onUpload();
-    
+
   }
 
   onUpload(){
@@ -46,6 +50,10 @@ export class ProfileComponent implements OnInit {
       }
       
     })
+  }
+
+  updatePage(){
+    this.router.navigateByUrl("/user-details")
   }
 
 }

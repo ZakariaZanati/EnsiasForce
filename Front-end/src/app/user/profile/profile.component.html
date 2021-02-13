@@ -10,7 +10,7 @@
                         <img [src]="profileImage" class="img"/>
                     </div>
                     <ng-template #elseBlock>
-                        <img src="../../assets/defaultpng.png" class="img" alt="">
+                        <img src="../../../assets/default_profile.jpg" class="img" alt="">
                     </ng-template>
                     <div class="buttons">
                         <input type="file" id="file" (change)="onFileChanged($event)">
@@ -18,24 +18,23 @@
                     </div>
                 </div>
                 <div class="user_status">
-                    <div class="name">Zakaria Zanati</div>
-                    <div class="filiere">Génie Logiciel</div>
-                    <div class="status">Looking for End-of-studies Internship</div>
+                    <div class="name"> {{userDetailsPayload.fullName}} </div>
+                    <div class="status"> {{userDetailsPayload.status}} </div>
                 </div>
             </div>
             <div class="part_two">
                 <div class="title">General informations</div>
                 <div class="info">
-                    <span class="value"><i class="far fa-envelope"></i> zakaria@gmail.com</span>
+                    <span class="value"><i class="far fa-envelope"></i> {{userDetailsPayload.email}}</span>
                 </div>
                 <div class="info">
-                    <span class="value"><i class="fas fa-phone-alt"></i> 0616144542</span>
+                    <span class="value"><i class="fas fa-phone-alt"></i> {{userDetailsPayload.phoneNumber}}</span>
                 </div>
                 <div class="info">
-                    <span class="value"><i class="fas fa-map-marker-alt"></i> Rabat, Morocco</span>
+                    <span class="value"><i class="fas fa-map-marker-alt"></i> {{userDetailsPayload.city}}, {{userDetailsPayload.country}}</span>
                 </div>
                 <div class="update">
-                    <button><i class="far fa-edit"></i> Update</button>
+                    <button (click)="updatePage()"><i class="far fa-edit"></i> Update</button>
                 </div>
             </div>
         </div>

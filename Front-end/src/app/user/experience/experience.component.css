@@ -104,7 +104,7 @@
 .form_footer{
     display: flex;
     justify-content: flex-end;
-    padding: 10px;
+    margin-top: 20px;
 }
 
 .form_footer button{
