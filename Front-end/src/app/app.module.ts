@@ -26,9 +26,13 @@ import { JobsListComponent } from './jobs/jobs-list/jobs-list.component';
 import { JobDescriptionComponent } from './jobs/job-description/job-description.component';
 import { JobDetailsComponent } from './jobs/job-details/job-details.component';
 import { JobFormComponent } from './jobs/job-form/job-form.component';
-import { PostsComponent } from './posts/posts.component';
+import { PostsComponent } from './posts/posts-list/posts.component';
 import { DetailsFormComponent } from './user/details-form/details-form.component';
 import {TokenInterceptor} from './token-interceptor';
+import { CommentComponent } from './posts/comment/comment.component';
+import { CreatePostComponent } from './posts/create-post/create-post.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -49,7 +53,9 @@ import {TokenInterceptor} from './token-interceptor';
     JobDetailsComponent,
     JobFormComponent,
     PostsComponent,
-    DetailsFormComponent
+    DetailsFormComponent,
+    CommentComponent,
+    CreatePostComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,9 @@ import {TokenInterceptor} from './token-interceptor';
     MatSelectModule,
     MatDatepickerModule,
     HttpClientModule,
-    NgxWebstorageModule.forRoot()
+    NgxWebstorageModule.forRoot(),
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

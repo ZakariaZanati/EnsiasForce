@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { JobDetailsComponent } from './jobs/job-details/job-details.component';
 import { JobsListComponent } from './jobs/jobs-list/jobs-list.component';
 import { ProfileComponent } from './user/profile/profile.component';
-import { PostsComponent } from './posts/posts.component';
+import { PostsComponent } from './posts/posts-list/posts.component';
 import { DetailsFormComponent } from './user/details-form/details-form.component';
 
 const routes: Routes = [

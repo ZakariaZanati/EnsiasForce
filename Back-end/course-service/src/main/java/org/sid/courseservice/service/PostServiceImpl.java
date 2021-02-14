@@ -1,6 +1,7 @@
 package org.sid.courseservice.service;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,7 +47,7 @@ public class PostServiceImpl implements PostService{
 	                .user(publisher)
 	                .userID(publisher.getId())
 	                .image(image.getBytes())
-	                .dateCreation(new Date())
+	                .dateCreation(Instant.now())
 	                .build();
 		}
 		else {
@@ -54,7 +55,7 @@ public class PostServiceImpl implements PostService{
 	                .description(postDto.getDescription())
 	                .user(publisher)
 	                .userID(publisher.getId())
-	                .dateCreation(new Date())
+	                .dateCreation(Instant.now())
 	                .build();
 		}
 		

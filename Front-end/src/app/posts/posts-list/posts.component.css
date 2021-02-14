@@ -6,7 +6,7 @@
 }
 
 .posts_content {
-    width: 60%;
+    /* width: 60%; */
     margin: 0 auto;
     display: flex;
 }
@@ -406,6 +406,22 @@ main#main-section article div#post-interactions div#interactions-btns {
     display: flex;
 }
 
+
+
+main#main-section article div#post-interactions div#commentForm {
+    border-top: 1px solid #e6e9ec;
+    margin: 4px 10px;
+    display: flex;
+}
+
+main#main-section article div#post-interactions div#commentForm form.form-inline{
+    margin: 8px 5px 8px 5px;
+}
+
+main#main-section article div#post-interactions div#commentForm form.form-inline input{
+    margin-right: 5px;
+}
+
 main#main-section article div#post-interactions div#interactions-btns button {
     border: 0;
     background: whitesmoke;
@@ -419,6 +435,11 @@ main#main-section article div#post-interactions div#interactions-btns button {
 
     display: flex;
     align-items: center;
+}
+
+main#main-section article div#post-interactions div#interactions-btns button span.liked{
+    font-size: 18px;
+    margin-right: 4px;
 }
 
 main#main-section

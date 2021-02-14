@@ -1,5 +1,6 @@
 package org.sid.courseservice.entity;
 
+import java.time.Instant;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -34,9 +35,9 @@ public class Post {
 	
 	private String description;
 	
-	@Temporal(TemporalType.TIMESTAMP)
+	
 	@Column(name="dateCreation")
-	private Date dateCreation= new Date();
+	private Instant dateCreation;
 
     private Long userID;
 

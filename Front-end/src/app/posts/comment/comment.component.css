@@ -1,0 +1,59 @@
+.add_reaction{
+    width: 100%;
+}
+input{
+    width: 90%;
+    border:1px solid red ;
+    border-radius: 10px;
+    height: 40px;
+    padding: 10px;
+    margin: 5px 5px 5px 5px;
+}
+
+.commentForm{
+    border-top: 1px solid #e6e9ec;
+    margin: 4px 10px;
+    display: flex;
+}
+
+.comments_container{
+    width: 100%;
+}
+
+.comment_form{
+    display: flex;
+    justify-content: space-between;
+}
+.form_submit{
+    height: 40px;
+    width: 40px;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    border-style: none;
+    margin: 5px 5px 5px 5px;
+}
+.form_submit:hover{
+    background-color: rgb(24, 24, 24);
+}
+
+.comments_container>.comment{
+    display: flex
+}
+
+.comment>.user_comment{
+    background-color: white;
+    margin: 10px 0;
+    border-radius: 10px;
+    padding: 10px;
+    border:1px solid red ;
+    font-size: 12px;
+}
+
+.comment>.user{
+    font-weight: bold;
+    color:black;
+    margin: 10px 0;
+    padding: 10px 10px 10px 10px;    
+
+}

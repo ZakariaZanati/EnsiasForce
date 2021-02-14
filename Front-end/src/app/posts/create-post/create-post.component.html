@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <h4 class="modal-title">Post Add</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('closed')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+        <form [formGroup]="createPostForm" (ngSubmit)="createPost()">
+            <!-- <div class="post_header">
+                <span class="post_title">Create post</span>
+            </div> -->
+            <div class="text">
+                <textarea [formControlName]="'description'"  id="post_text" cols="100" rows="10" placeholder="What's on your mind"></textarea>
+            </div> 
+            <div class="image">
+                <div *ngIf="imgURL">
+                    <img [src]="imgURL">
+                </div>
+            </div>
+            <div class="buttons">
+                <input #file type="file" id="file" (change)="onFileChanged($event)"  (change)="preview(file.files)" >
+                <label for="file"><i class="fas fa-camera"></i> Image</label>
+                <button class="form_new_post" type="submit">Post</button>
+            </div>
+        </form>
+  </div>
+
