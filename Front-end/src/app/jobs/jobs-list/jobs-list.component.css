@@ -108,9 +108,7 @@ i{
     border-radius: 30px;
 }
 
-.content_wrapper{
-    background-color: whitesmoke;
-}
+
 
 .jobs_content{
     display: grid;
@@ -120,6 +118,8 @@ i{
     height: 600px;
     padding: 10px 0;
     border: 1px solid grey;
+    background-color: whitesmoke;
+    margin-bottom: 20px;
 }
 
 .jobs_list,.jobs_details{
@@ -129,6 +129,10 @@ i{
 
 .hide{
     display: none;
+}
+
+ul a {
+    cursor: pointer;
 }
 
 

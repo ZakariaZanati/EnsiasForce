@@ -17,6 +17,7 @@ export class AuthService {
   @Output() loggedIn: EventEmitter<Boolean> = new EventEmitter<Boolean>();
   @Output() email: EventEmitter<String> = new EventEmitter<String>();
   @Output() fullName : EventEmitter<String> = new EventEmitter<String>();
+  userID : number;
 
   url : string = "http://localhost:8888/USER-SERVICE";
   url2 : string = "http://localhost:8081";
@@ -68,6 +69,7 @@ export class AuthService {
         this.loggedIn.emit(true);
         this.email.emit(data.email);
         this.fullName.emit(data.fullName);
+        this.userID = data.userID;
 
         return true;
       }));

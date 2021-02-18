@@ -6,4 +6,5 @@ export class LoginResponsePayload {
     completed : boolean;
     fullName : string;
     userType : string;
+    userID : number;
 }

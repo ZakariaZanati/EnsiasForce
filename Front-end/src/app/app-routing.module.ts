@@ -8,17 +8,19 @@ import { JobsListComponent } from './jobs/jobs-list/jobs-list.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { PostsComponent } from './posts/posts.component';
 import { DetailsFormComponent } from './user/details-form/details-form.component';
+import { ProfilesListComponent } from './profiles/profiles-list/profiles-list.component';
 
 const routes: Routes = [
   {path : '',component : HomeComponent},
   {path : 'signup',component : SignupComponent},
   {path : 'signin',component : LoginComponent},
   {path : 'jobs', component : JobsListComponent,children : [
-    {path : 'id', component : JobDetailsComponent}
+    {path : ':id', component : JobDetailsComponent}
   ]},
   {path: 'profile',component : ProfileComponent},
   {path: 'posts',component : PostsComponent},
-  {path : 'user-details',component : DetailsFormComponent}
+  {path : 'user-details',component : DetailsFormComponent},
+  {path : 'ensiastes',component : ProfilesListComponent}
 
 ];
 

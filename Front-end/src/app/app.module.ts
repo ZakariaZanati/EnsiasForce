@@ -29,6 +29,7 @@ import { JobFormComponent } from './jobs/job-form/job-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { DetailsFormComponent } from './user/details-form/details-form.component';
 import {TokenInterceptor} from './token-interceptor';
+import { ProfilesListComponent } from './profiles/profiles-list/profiles-list.component';
 
 
 
@@ -49,7 +50,8 @@ import {TokenInterceptor} from './token-interceptor';
     JobDetailsComponent,
     JobFormComponent,
     PostsComponent,
-    DetailsFormComponent
+    DetailsFormComponent,
+    ProfilesListComponent
   ],
   imports: [
     BrowserModule,

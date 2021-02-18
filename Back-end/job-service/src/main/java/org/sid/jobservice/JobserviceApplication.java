@@ -25,8 +25,6 @@ public class JobserviceApplication {
         return args -> {
           //jobRepository.save(new Job(null,"Java/Jee developer","descr"));
           //jobRepository.save(new Job(null,"Data scientist","description"));
-            User user = userRestService.getUserById(1L);
-            System.out.println(user.toString());
         };
     }
 }

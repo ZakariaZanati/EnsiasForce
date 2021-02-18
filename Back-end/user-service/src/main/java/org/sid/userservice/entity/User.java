@@ -1,5 +1,6 @@
 package org.sid.userservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -47,12 +48,15 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Role> roles = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private Collection<Experience> experiences = new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private Collection<Formation> formations = new ArrayList<>();
 
+    @JsonIgnore
     @ManyToMany
     private Collection<Skill> skills = new ArrayList<>();
 }

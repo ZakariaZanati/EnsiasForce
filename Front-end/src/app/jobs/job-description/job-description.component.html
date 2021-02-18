@@ -1,13 +1,13 @@
-<div class="job_description_wrapper">
+<div class="job_description_wrapper" style="cursor: pointer;" (click)="viewJobDetails()">
     <div class="job_description_content">
         <div class="image">
 
         </div>
         <div class="description">
             <div>
-                <div class="job_title">Stage PFE :Full Stack JAVA/ANGULAR Developer</div>
-                <div class="enterprise">ATOS</div>
-                <div class="location">Toulouse, France</div>
+                <div class="job_title"> {{jobOffer.name}} </div>
+                <div class="enterprise"> {{jobOffer.enterprise}} </div>
+                <div class="location"> {{jobOffer.location}} </div>
             </div>
             <div class="one"></div>
             <div class="two">

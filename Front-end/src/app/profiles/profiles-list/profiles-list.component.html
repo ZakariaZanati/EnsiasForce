@@ -1,0 +1,28 @@
+<div class="profiles_list_wrapper">
+    <app-sidebar style="width: 250px;"></app-sidebar>
+    <div class="profiles_list_content">
+        <div class="options">
+            <div class="search">
+                <input type="text" name="search" [(ngModel)]="name" placeholder="Full name"><i class="fas fa-search"></i>
+            </div>
+            <div class="search">
+                <input type="text" name="location" [(ngModel)]="location" placeholder="Location"><i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="search">
+                <input type="text" name="job" [(ngModel)]="currentJob" placeholder="Current Job"><i class="fas fa-briefcase"></i>
+            </div>
+        </div>
+        <div class="profiles">
+            <div class="user">
+                <div class="image">
+
+                </div>
+                <div class="fullName">Zakaria Zanati</div>
+                <div class="status">Software engineer Intern</div>
+                <div class="view">
+                    <button>View</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

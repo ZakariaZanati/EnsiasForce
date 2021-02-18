@@ -3,6 +3,7 @@ package org.sid.userservice.web;
 import lombok.AllArgsConstructor;
 import org.sid.userservice.dto.UserDetailsDto;
 import org.sid.userservice.entity.User;
+import org.sid.userservice.service.AccountService;
 import org.sid.userservice.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +18,11 @@ import java.io.IOException;
 public class UserRestController {
 
     private final UserService userService;
+    private final AccountService accountService;
 
     @GetMapping
-    public UserDetailsDto getCurrentUserDetails(){
-        System.out.println("test tes test");
-        return userService.LoadUserDetails();
+    public User getCurrentUserDetails(){
+        return accountService.getCurrentUser();
     }
 
     @GetMapping("/{id}")

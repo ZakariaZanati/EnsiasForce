@@ -72,6 +72,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         idToken.put("userType",currentUser.getRoles().stream().findFirst().get().getRoleName());
         idToken.put("completed",currentUser.getCompleted().toString());
         idToken.put("expiresAt",Instant.now().plusMillis(48*60*60*1000).toString());
+        idToken.put("userID",currentUser.getId().toString());
         response.setContentType("application/json");
         final String origin = "http://localhost:4200";
 
