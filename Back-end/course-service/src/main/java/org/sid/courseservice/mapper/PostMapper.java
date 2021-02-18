@@ -2,6 +2,9 @@ package org.sid.courseservice.mapper;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.temporal.ChronoUnit;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
 
@@ -27,10 +30,13 @@ public class PostMapper {
 		PostResponseDto postResponseDto = PostResponseDto.builder()
 														.id(post.getId())
 														.description(post.getDescription())
+														.image(post.getImage())
 														.dateCreation(post.getDateCreation())
+														.duration(getDuration(post))
 														.publisherFullName(getPublisherFullName(post.getUserID()))
 														.likeCount(likeCount(post))
-														.liked(true)
+														.commentCount(commentCount(post))
+														.liked(false)
 														.profileImage(getPublisherImage(post.getUserID()))
 														.build();
 		return postResponseDto;
@@ -41,6 +47,10 @@ public class PostMapper {
 		return likeRepository.findByPost(post).size();
 	}
 	
+	private Integer commentCount(Post post) {
+		return commentRepository.findByPost(post).size();
+	}
+	
 	private String getPublisherFullName(Long idUsername) {
 		return "fullName";
 	}
@@ -49,6 +59,45 @@ public class PostMapper {
 		return null;
 	}
 	
+	private String getDuration(Post post){
+
+        LocalDateTime toDateTime = LocalDateTime.now();
+        LocalDateTime fromDateTime = LocalDateTime.ofInstant(post.getDateCreation(), ZoneId.systemDefault());
+
+        LocalDateTime tempDateTime = LocalDateTime.from(fromDateTime);
+        long year = tempDateTime.until(toDateTime, ChronoUnit.YEARS);
+        tempDateTime = tempDateTime.plusYears(year);
+
+        long months = tempDateTime.until( toDateTime, ChronoUnit.MONTHS );
+        tempDateTime = tempDateTime.plusMonths( months );
+
+        long days = tempDateTime.until( toDateTime, ChronoUnit.DAYS );
+        tempDateTime = tempDateTime.plusDays( days );
+
+
+        long hours = tempDateTime.until( toDateTime, ChronoUnit.HOURS );
+        tempDateTime = tempDateTime.plusHours( hours );
+
+        long minutes = tempDateTime.until( toDateTime, ChronoUnit.MINUTES );
+
+
+
+        String duration = "";
+
+        if (year != 0){
+            duration += fromDateTime.getDayOfMonth()+" "+fromDateTime.getMonth().toString().toLowerCase() + " " + fromDateTime.getYear();
+        } else if (months != 0 || days != 0){
+            duration = fromDateTime.getDayOfMonth()+" "+fromDateTime.getMonth().toString().toLowerCase();
+        } else if (hours != 0){
+            duration = (hours == 1 ? hours+" hr" : (hours + " hrs"));
+        } else if (minutes != 0){
+            duration = (minutes == 1 ? minutes+" min" : (minutes + " mins"));
+        } else {
+            duration = "just now";
+        }
+
+        return duration;
+    }
 	
 	private byte[] decompressBytes(byte[] data) {
         Inflater inflater = new Inflater();

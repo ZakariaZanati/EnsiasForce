@@ -1,5 +1,6 @@
 package org.sid.courseservice.dto;
 
+import java.time.Instant;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -17,8 +18,10 @@ public class PostResponseDto {
 	private String description;
     private String publisherFullName;
     private Integer likeCount;
+    private Integer commentCount;
     private byte[] profileImage;
     private boolean liked;
-    private Date dateCreation;
+    private Instant dateCreation;
+    private String duration;
     private byte[] image;
 }
