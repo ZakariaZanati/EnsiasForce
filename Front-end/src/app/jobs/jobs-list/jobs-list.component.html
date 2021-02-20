@@ -3,7 +3,7 @@
     <div class="jobs_container">
         <div class="options1">
             <div class="find">
-                <form (ngSubmit)="onFindJobs()" #f="ngForm">
+                <form (ngSubmit)="onFindJobs(f)" #f="ngForm">
                     <div class="search">
                         <input type="text" name="search" ngModel placeholder="Search by title..."><i class="fas fa-search"></i>
                     </div>

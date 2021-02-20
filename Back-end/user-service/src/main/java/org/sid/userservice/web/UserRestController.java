@@ -2,6 +2,7 @@ package org.sid.userservice.web;
 
 import lombok.AllArgsConstructor;
 import org.sid.userservice.dto.UserDetailsDto;
+import org.sid.userservice.dto.UsersDetailsResponse;
 import org.sid.userservice.entity.User;
 import org.sid.userservice.service.AccountService;
 import org.sid.userservice.service.UserService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
@@ -39,6 +41,14 @@ public class UserRestController {
     @PostMapping("/img")
     public ResponseEntity<byte[]> saveUserImage(@RequestParam("imageFile") MultipartFile imageFile) throws IOException {
         return ResponseEntity.status(HttpStatus.OK).body(userService.saveUserImage(imageFile.getBytes()));
+    }
+
+    @GetMapping("/list")
+    public UsersDetailsResponse getUsersPage(@RequestParam int page,
+                                                   @RequestParam int size,
+                                                   @RequestParam String name,
+                                                   @RequestParam String location){
+        return userService.LoadUsersDetailsPage(page, size, name, location);
     }
 
 }

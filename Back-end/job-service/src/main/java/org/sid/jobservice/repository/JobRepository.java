@@ -11,5 +11,7 @@ import org.springframework.stereotype.Repository;
 public interface JobRepository extends JpaRepository<Job,Long> {
 
     Page<Job> findByNameContainsOrLocationContains(Pageable pageable, String post, String location);
+    Page<Job> findByNameContains(Pageable pageable,String name);
+    Page<Job> findByLocationContains(Pageable pageable,String location);
 
 }

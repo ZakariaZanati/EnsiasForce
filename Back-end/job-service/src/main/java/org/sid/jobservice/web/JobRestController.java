@@ -40,6 +40,7 @@ public class JobRestController {
                                    @RequestParam String location){
 
         Pageable pageable = PageRequest.of(page, size);
+        System.out.println(name + " "+location);
         return jobService.filterByNameOrLocation(pageable,name,location);
     }
 

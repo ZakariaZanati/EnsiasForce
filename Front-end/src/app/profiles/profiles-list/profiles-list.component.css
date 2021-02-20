@@ -48,7 +48,7 @@ i{
     grid-template-columns: repeat(5,1fr);
     row-gap: 10px;
     column-gap: 20px;
-    background-color: aliceblue;
+    height: 540px;
 }
 
 .user{
@@ -58,6 +58,7 @@ i{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 240px;
 }
 
 .user .image{
@@ -68,20 +69,32 @@ i{
     margin-bottom: 10px;
 }
 
+.image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
 .user .status{
     display: flex;
     color: #7E7E7E;
     text-align: center;
 }
 
-.user .view{
-    margin: 10px 0;
+.fullName,.status{
+    height: 50px;
 }
 
-.view button{
+.user .view{
+    margin: 15px 0;
+}
+
+.view button{   
+
+    height: 40px;
+    width: 100px;
     color: white;
     background-color: #FF0000;
-    padding: 10px 15px;
     border: 2px solid red;
     border-radius: 30px;
 }
@@ -89,8 +102,38 @@ i{
 .view button:hover{
     color: red;
     background-color: white;
-    padding: 10px 15px;
     border: 2px solid red;
     border-radius: 30px;
     cursor: pointer;
+}
+
+.pagination,.page-link{
+    color: red;
+}
+
+.page-link{
+    cursor: pointer;
+    
+
+}
+
+
+#num{
+    background-color: red;
+    border: 1px solid black;
+}
+
+#right,#left{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+#right{
+    background-image: url('../../../assets/chevron.png');
+}
+
+#left{
+    background-image: url('../../../assets/chevron(1).png');
 }

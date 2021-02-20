@@ -61,9 +61,19 @@ public class JobServiceImpl implements JobService{
 
     @Override
     public JobsResponse filterByNameOrLocation(Pageable pageable,String name, String location) {
-        Page<Job> jobPage = jobRepository.findByNameContainsOrLocationContains(pageable, name, location);
-        List<Job> jobs = jobPage.stream().collect(Collectors.toList());
 
+        Page<Job> jobPage;
+
+        if (!name.equals("") && location.equals("")){
+            jobPage = jobRepository.findByNameContains(pageable,name);
+        } else if (name.equals("") && !location.equals("")){
+            jobPage = jobRepository.findByLocationContains(pageable, location);
+        } else {
+            jobPage = jobRepository.findByNameContainsOrLocationContains(pageable, name, location);
+
+        }
+        List<Job> jobs = jobPage.stream().collect(Collectors.toList());
+        System.out.println(jobs.toString());
         return new JobsResponse(jobs,jobPage.getTotalPages(),jobPage.getNumber(),jobPage.getSize());
     }
 }

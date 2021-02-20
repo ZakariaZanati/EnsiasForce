@@ -1,3 +1,24 @@
+<div class="author_container">
+    <div class="title">Author</div>
+    <div class="author">
+        <div class="image">
+            <div *ngIf="author.image; else elseBlock">
+                <img [src]="author.image" class="img"/>
+            </div>
+            <ng-template #elseBlock>
+                <img src="../../../assets/default_profile.jpg" class="img" alt="">
+            </ng-template>
+        </div>
+        <div class="info">
+            <div class="fullName">{{author.fullName}}</div>
+            <div class="status">{{author.status}} </div>
+            <div class="location"> {{author.city}}, {{author.country}} </div>
+        </div>
+    </div>
+</div>
+
+
+
 <div class="content">
     <h1>{{jobOffer.name}} </h1>
     <div class="enterprise">{{jobOffer.enterprise}}</div>

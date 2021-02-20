@@ -3,26 +3,41 @@
     <div class="profiles_list_content">
         <div class="options">
             <div class="search">
-                <input type="text" name="search" [(ngModel)]="name" placeholder="Full name"><i class="fas fa-search"></i>
+                <input type="text" name="search" (input)="onNameChange($event.target.value)" placeholder="Full name"><i class="fas fa-search"></i>
             </div>
             <div class="search">
-                <input type="text" name="location" [(ngModel)]="location" placeholder="Location"><i class="fas fa-map-marker-alt"></i>
+                <input type="text" name="location" (input)="onLocationChange($event.target.value)" placeholder="Location"><i class="fas fa-map-marker-alt"></i>
             </div>
             <div class="search">
-                <input type="text" name="job" [(ngModel)]="currentJob" placeholder="Current Job"><i class="fas fa-briefcase"></i>
+                <input type="text" name="job" placeholder="Current Job"><i class="fas fa-briefcase"></i>
             </div>
         </div>
         <div class="profiles">
-            <div class="user">
+            <div  *ngFor="let user of profiles" class="user">
                 <div class="image">
-
+                    <div *ngIf="user.image; else elseBlock">
+                        <img [src]="user.image" class="img"/>
+                    </div>
+                    <ng-template #elseBlock>
+                        <img src="../../../assets/default_profile.jpg" class="img" alt="">
+                    </ng-template>
                 </div>
-                <div class="fullName">Zakaria Zanati</div>
-                <div class="status">Software engineer Intern</div>
+                <div class="fullName">{{user.fullName}}</div>
+                <div class="status"> {{user.status}} </div>
                 <div class="view">
                     <button>View</button>
                 </div>
             </div>
         </div>
+
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a (click)="previousClick()" class="page-link" id="left"></a></li>
+            <li *ngFor='let index of pageIndexes' class="page-item" [ngClass]="active(index)">
+                    <a (click)="getPaginationWithIndex(index)" class="page-link" id="num">
+                      {{index + 1}}
+                    </a>
+            </li>
+            <li class="page-item"><a (click)="nextClick()" class="page-link" id="right"></a></li>
+        </ul>
     </div>
 </div>
