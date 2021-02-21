@@ -25,7 +25,7 @@
                 <div class="fullName">{{user.fullName}}</div>
                 <div class="status"> {{user.status}} </div>
                 <div class="view">
-                    <button>View</button>
+                    <button (click)="viewProfile(user.id)" >View</button>
                 </div>
             </div>
         </div>

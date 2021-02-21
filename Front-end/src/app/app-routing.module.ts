@@ -20,7 +20,8 @@ const routes: Routes = [
   {path: 'profile',component : ProfileComponent},
   {path: 'posts',component : PostsComponent},
   {path : 'user-details',component : DetailsFormComponent},
-  {path : 'ensiastes',component : ProfilesListComponent}
+  {path : 'ensiastes',component : ProfilesListComponent},
+  {path : 'profile/:id',component : ProfileComponent}
 
 ];
 

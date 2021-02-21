@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FormationPayload } from '../shared/formation/formation.payload';
 import { FormationService } from '../shared/formation/formation.service';
+import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../auth/shared/auth.service';
 
 @Component({
   selector: 'app-formation',
@@ -13,13 +15,25 @@ export class FormationComponent implements OnInit {
   displayForm : boolean = false;
   formationPayloadRequest = new FormationPayload();
   formations : Array<FormationPayload> = [];
+  current : boolean = true;
+  userId : number;
 
-  constructor(private formationService : FormationService) { }
+  constructor(private formationService : FormationService,private activatedRoute : ActivatedRoute, private authService : AuthService) { }
 
   ngOnInit(): void {
-    this.formationService.getCurrentUserFormations().subscribe(reponse => {
+    this.userId = this.activatedRoute.snapshot.params.id;
+    if(this.userId && this.userId != this.authService.userID){
+      this.current = false;
+      this.formationService.getUserFormations(this.userId).subscribe(reponse => {
         this.formations = reponse;
-    })
+      })
+    } else {
+      this.current = true;
+      this.formationService.getCurrentUserFormations().subscribe(reponse => {
+        this.formations = reponse;
+      })
+    }
+    
   }
 
   showForm(){

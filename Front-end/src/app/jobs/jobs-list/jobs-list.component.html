@@ -69,13 +69,13 @@
                 </div>
             </div>
             <ul class="pagination justify-content-center">
-                <li class="page-item"><a (click)="previousClick()" class="page-link">Previous</a></li>
+                <li class="page-item"><a (click)="previousClick()" class="page-link" id="left"></a></li>
                 <li *ngFor='let index of pageIndexes' class="page-item" [ngClass]="active(index)">
-                        <a (click)="getPaginationWithIndex(index)" class="page-link">
+                        <a (click)="getPaginationWithIndex(index)" class="page-link" id="num">
                           {{index + 1}}
                         </a>
                 </li>
-                <li class="page-item"><a (click)="nextClick()" class="page-link">Next</a></li>
+                <li class="page-item"><a (click)="nextClick()" class="page-link" id="right"></a></li>
             </ul>
         </div>
     </div>

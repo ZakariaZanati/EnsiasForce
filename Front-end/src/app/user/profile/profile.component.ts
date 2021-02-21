@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { UserDetailsPayload } from '../shared/user-details.payload';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../auth/shared/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,19 +15,36 @@ export class ProfileComponent implements OnInit {
   base64data : any;
   profileImage : any;
   selectedFile : File;
-
-  constructor(private userService : UserService, private router : Router) { }
+  userId : number;
+  current : boolean = true;
+  constructor(private userService : UserService, private router : Router,private activatedRoute : ActivatedRoute, private authService : AuthService) { }
 
   ngOnInit(): void {
 
-    this.userService.getCurrentUserDetails().subscribe(data => {
-      this.userDetailsPayload = data;
-      this.base64data = this.userDetailsPayload.image;
-      if(this.base64data){
-        this.profileImage = 'data:image/jpeg;base64,' + this.base64data;
-      }
-      
-    })
+    this.userId = this.activatedRoute.snapshot.params.id;
+    console.log(this.userId +" "+this.authService.userID)
+    if(this.userId && this.userId != this.authService.userID){
+      this.current = false;
+      this.userService.getUserDetails(this.userId).subscribe(data => {
+        this.userDetailsPayload = data;
+        this.base64data = this.userDetailsPayload.image;
+        if(this.base64data){
+          this.profileImage = 'data:image/jpeg;base64,' + this.base64data;
+        }
+        
+      })
+    } else {
+      this.current = true;
+      this.userService.getCurrentUserDetails().subscribe(data => {
+        this.userDetailsPayload = data;
+        this.base64data = this.userDetailsPayload.image;
+        if(this.base64data){
+          this.profileImage = 'data:image/jpeg;base64,' + this.base64data;
+        }
+        
+      })
+    }
+    
 
   }
 

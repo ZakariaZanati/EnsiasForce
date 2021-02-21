@@ -82,4 +82,8 @@ export class ProfilesListComponent implements OnInit {
     this.getPage(0,10,this.name,this.location);
   }
 
+  viewProfile(id : number){
+    this.router.navigateByUrl('/profile/'+id);
+  }
+
 }

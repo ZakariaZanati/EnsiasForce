@@ -11,7 +11,7 @@
 
 .user_details_wrapper{
     width: 70%;
-    height: 250px;
+    height: 280px;
     display: grid;
     grid-template-columns: 60% 40%;
     background-color: whitesmoke;

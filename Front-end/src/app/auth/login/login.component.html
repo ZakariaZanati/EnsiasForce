@@ -3,7 +3,9 @@
         <div>You don’t have an account ? <a routerLink='/signup'>sign up</a> </div>
     </div>
     <div class="two">
-        <div class="title"></div>
+        <div class="logo">
+            <img src="../../../assets/logo_app.png" class="img"/>
+        </div>
         <div class="signup_form">
             <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
                 <div class="header">

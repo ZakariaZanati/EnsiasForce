@@ -20,9 +20,14 @@
         <div class="three" *ngIf="isLoggedIn">
             <div class="profile">
                 <div class="image">
-
+                    <div *ngIf="profileImage; else elseBlock">
+                        <img [src]="profileImage" class="img"/>
+                    </div>
+                    <ng-template #elseBlock>
+                        <img src="../../../assets/default_profile.jpg" class="img" alt="">
+                    </ng-template>
                 </div>
-                <a routerLink="/profile"> Profile </a>
+                <a routerLink="/profile"> {{fullName}} </a>
             </div>
             <div class="logout" (click)="logout()">
                 <div class="icon"></div>

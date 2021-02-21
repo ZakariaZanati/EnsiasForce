@@ -12,6 +12,17 @@
     position: relative;
 }
 
+
+.logo{
+    display: flex;
+    justify-content: center;
+    margin: 100px auto;
+}
+
+.logo img{
+    width: 300px;
+}
+
 .one div{
     color: white;
     position: absolute;
@@ -39,7 +50,7 @@
 .two .title{
     font-size: 30px;
     color: red;
-    margin: 100px auto;
+    
 }
 
 .signup_form{

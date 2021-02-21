@@ -12,7 +12,7 @@
                     <ng-template #elseBlock>
                         <img src="../../../assets/default_profile.jpg" class="img" alt="">
                     </ng-template>
-                    <div class="buttons">
+                    <div class="buttons" *ngIf="current">
                         <input type="file" id="file" (change)="onFileChanged($event)">
                         <label for="file"><i class="fas fa-camera"></i></label>
                     </div>
@@ -33,7 +33,7 @@
                 <div class="info">
                     <span class="value"><i class="fas fa-map-marker-alt"></i> {{userDetailsPayload.city}}, {{userDetailsPayload.country}}</span>
                 </div>
-                <div class="update">
+                <div class="update" *ngIf="current">
                     <button (click)="updatePage()"><i class="far fa-edit"></i> Update</button>
                 </div>
             </div>
