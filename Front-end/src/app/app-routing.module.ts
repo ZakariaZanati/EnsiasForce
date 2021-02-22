@@ -8,6 +8,7 @@ import { JobsListComponent } from './jobs/jobs-list/jobs-list.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { PostsComponent } from './posts/posts-list/posts.component';
 import { DetailsFormComponent } from './user/details-form/details-form.component';
+import { CoursesComponent } from './courses/courses.component';
 
 const routes: Routes = [
   {path : '',component : HomeComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   ]},
   {path: 'profile',component : ProfileComponent},
   {path: 'posts',component : PostsComponent},
+  {path: 'courses',component : CoursesComponent},
   {path : 'user-details',component : DetailsFormComponent}
 
 ];

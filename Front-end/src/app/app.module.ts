@@ -33,6 +33,8 @@ import { CommentComponent } from './posts/comment/comment.component';
 import { CreatePostComponent } from './posts/create-post/create-post.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CoursesComponent } from './courses/courses.component';
+import { CreateCourseComponent } from './courses/create-course/create-course.component';
 
 
 
@@ -55,7 +57,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     PostsComponent,
     DetailsFormComponent,
     CommentComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    CoursesComponent,
+    CreateCourseComponent
   ],
   imports: [
     BrowserModule,

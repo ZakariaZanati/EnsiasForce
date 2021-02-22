@@ -1,0 +1,92 @@
+<!-- <div class="cove_img">
+</div>
+<div class="title">
+    Find Trainnings & Courses <br> to expand you knowledge <br> on the latest skills and tools <br> across core functional areas
+</div> -->
+
+<!-- <div class="topics_container">
+    <div class="topics">
+        <div class="topic">
+            <span>Business Topics</span>
+            <div class="img img1"></div>
+            <div class="desc">
+                Business skills training is becoming a necessity in maximizing employee performance, regardless of job level or function. From leadership development to soft skills training, our business courses can help your team stay ahead.
+            </div>
+    
+        </div>
+        <div class="topic">
+            <span>Technology Topics</span>
+            <div class="img img2"></div>
+            <div class="desc">
+                As technology continues to evolve, the skills gap for workplace technology experts widens. Our technology courses can provide your technical teams with the training they need to gain new skills or become more advanced in their existing skillsets.         
+            </div>  
+        </div>
+        <div class="topic">
+            <span>Creative Topics</span>
+            <div class="img img3"></div>
+            <div class="desc">
+                These days, design and technology go hand in hand. Being adept with design and engineering technology has become just as important as creative soft skills. Our creative courses can help you learn AutoCAD, Photoshop, and many other software tools to improve creative skills.
+            </div>   
+        </div>
+    </div>
+    <div *ngIf="userType.toLowerCase()=='provider'" class="create"><button type="submit" (click)="addCourse()">Offer a course</button></div>
+</div> -->
+
+<div class="courses_wrapper">
+    <app-sidebar style="width: 250px;"></app-sidebar>
+    <div class="courses_container">
+            <span>Explore courses</span>
+            <div class="d-flex"> <button (click)="openModalPostCreation()">Add New Course</button> </div>
+            <div class="options">
+                <div class="name_filter">
+                    <input (input)="onSearchChange($event.target.value)" type="search" placeholder="Search ..."><i class="fas fa-search"></i>
+                </div>
+                <div class="filters">
+                    <div class="sort">
+                        <label class="sort-label" for="sort">Categorie :</label>
+                        <select [(ngModel)]="categoryFilter" (change)="filterByCategory()" class="sort-select" name="" id="sort">
+                            <option *ngFor="let categ of categories" [ngValue]="categ">{{categ}}</option>
+                        </select>
+                    </div>
+                    <div class="date_filter">
+                        <label for="date">Date : </label>
+                        <input placeholder="yyyy-mm-dd" [(ngModel)]="dateFilter" (ngModelChange)="filterByDate()" ngbDatepicker #d="ngbDatepicker">
+                        <button 
+                        class="btn btn-outline-secondary calendar"
+                        (click)="d.toggle()"
+                        type="button"><i class="fa fa-calendar"></i></button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="courses">
+                <div *ngFor="let course of courses">
+                    <div class="course">
+                        <div class="course_img">
+                            <div *ngIf="course.imageBytes">
+                                <img [src]="course.imageBytes" alt="">
+                            </div>
+                        </div>
+                       
+                        <div class="name">{{course.name}}</div>
+                        <div class="info ">Date : {{course.dateTime}} at {{course.time}}</div>
+                        <div class="info ">Duration : {{course.duration}}</div>
+                        <div class="info ">Provider : {{course.providerUsername}}</div>
+                        <div class="details"><button (click)="toogleCourse(course)"><i class="fas fa-info"></i> Details</button></div>
+                    </div>
+                    <div *ngIf="course.show" class="course_details"><app-view-course [course]="course"></app-view-course> </div>
+                </div>
+                
+            </div>
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a (click)="previousClick()" class="page-link">Previous</a></li>
+                <li *ngFor='let index of pageIndexes' class="page-item" [ngClass]="active(index)">
+                        <a (click)="getPaginationWithIndex(index)" class="page-link">
+                          {{index + 1}}
+                        </a>
+                </li>
+                <li class="page-item"><a (click)="nextClick()" class="page-link">Next</a></li>
+            </ul>
+    </div>
+    
+</div>
