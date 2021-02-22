@@ -4,6 +4,7 @@ import { FormGroup, Validators, FormControl, FormBuilder } from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import { PostsService } from '../shared/posts.service';
 import { postRequestModel } from '../post.model';
+import { AuthService } from '../../auth/shared/auth.service';
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
@@ -19,7 +20,8 @@ export class CreatePostComponent implements OnInit {
   imgURL: any;
   public message: string;
 
-  constructor(private postService:PostsService, private formBuilder : FormBuilder, private http:HttpClient, public activeModal: NgbActiveModal) { }
+  constructor(private postService:PostsService, private formBuilder : FormBuilder, private http:HttpClient
+    , public activeModal: NgbActiveModal, private authService : AuthService) { }
 
   ngOnInit(): void {
     this.createPostForm = this.formBuilder.group({
@@ -37,9 +39,12 @@ export class CreatePostComponent implements OnInit {
   createPost() {
     const uploadPost = new FormData();
     let post:postRequestModel = {description : this.createPostForm.get('description').value
-    , image : this.createPostForm.get('postImage').value}
+    , image : this.createPostForm.get('postImage').value, userID : this.authService.userID}
+    console.log("post a send is");
+    console.log(post);
     uploadPost.append('postImage',post.image);
     uploadPost.append('postDescription',post.description);
+    uploadPost.append('publisherID',String(post.userID));
     this.postService.addPost(uploadPost).subscribe(
       response => {
         console.log(response);

@@ -29,9 +29,12 @@ public class CommentServiceImpl implements CommentService {
 	public void addComment(CommentDto commentDto, Long idPost) {
 		Post post = postRepository.findById(idPost).get();
 		
-		User publisher = new User();
+//		User publisher = new User();
+//		publisher.setId(10L);
+//		publisher.setFullName("sefiane mazid");
+		
+		User publisher = userRestService.getUserById(10L);
 		publisher.setId(10L);
-		publisher.setFullName("sefiane mazid");
 		
 		Comment comment = Comment.builder()
 		.dateCreation(new Date())

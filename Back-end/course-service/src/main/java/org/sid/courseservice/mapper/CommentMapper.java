@@ -7,6 +7,7 @@ import org.sid.courseservice.entity.Comment;
 import org.sid.courseservice.entity.User;
 import org.sid.courseservice.repository.CommentRepository;
 import org.sid.courseservice.repository.LikeRepository;
+import org.sid.courseservice.service.UserRestService;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -14,6 +15,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Service
 public class CommentMapper {
+	
+	private final UserRestService userSevice;
 	
 	public CommentDto commentToCommentDto(Comment comment) {
 				
@@ -28,7 +31,8 @@ public class CommentMapper {
 	
 	
 
-	private String getPublisherFullName(Long idUsername) {
-		return "fullName";
+	private String getPublisherFullName(Long idUser) {
+		User publisher = userSevice.getUserById(idUser);
+		return publisher.getFullName();
 	}
 }

@@ -13,6 +13,7 @@ import org.sid.courseservice.entity.Post;
 import org.sid.courseservice.entity.User;
 import org.sid.courseservice.repository.CommentRepository;
 import org.sid.courseservice.repository.LikeRepository;
+import org.sid.courseservice.service.UserRestService;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
@@ -24,6 +25,7 @@ public class PostMapper {
 	
 	private final CommentRepository commentRepository;
 	private final LikeRepository likeRepository;
+	private final UserRestService userSevice;
 	
 	
 	public PostResponseDto postToPostResponseDto(Post post) {
@@ -51,12 +53,15 @@ public class PostMapper {
 		return commentRepository.findByPost(post).size();
 	}
 	
-	private String getPublisherFullName(Long idUsername) {
-		return "fullName";
+	private String getPublisherFullName(Long idUser) {
+		User publisher = userSevice.getUserById(idUser);
+		return publisher.getFullName();
 	}
 	
-	private byte[] getPublisherImage(Long idUsername) {
-		return null;
+	private byte[] getPublisherImage(Long idUser) {
+		User publisher = userSevice.getUserById(idUser);
+		if (publisher.getImage() == null)  return null;
+		return decompressBytes(publisher.getImage());
 	}
 	
 	private String getDuration(Post post){

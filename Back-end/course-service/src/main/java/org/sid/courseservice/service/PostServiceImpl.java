@@ -31,12 +31,12 @@ public class PostServiceImpl implements PostService{
 	public Void createPost(PostDto postDto) throws IOException{
 		
 		Post post;
-//		User publisher = userRestService.getUserById(1L);
+		User publisher = userRestService.getUserById(postDto.getPublisherID());
 		
 		
-		User publisher = new User();
-		publisher.setId(10L);
-		publisher.setFullName("sefiane mazid");
+//		User publisher = new User();
+//		publisher.setId(10L);
+//		publisher.setFullName("sefiane mazid");
 				
 		
 		MultipartFile image = postDto.getFile();
@@ -45,7 +45,7 @@ public class PostServiceImpl implements PostService{
 			post = Post.builder()
 	                .description(postDto.getDescription())
 	                .user(publisher)
-	                .userID(publisher.getId())
+	                .userID(postDto.getPublisherID())
 	                .image(image.getBytes())
 	                .dateCreation(Instant.now())
 	                .build();
@@ -54,7 +54,7 @@ public class PostServiceImpl implements PostService{
 			post = Post.builder()
 	                .description(postDto.getDescription())
 	                .user(publisher)
-	                .userID(publisher.getId())
+	                .userID(postDto.getPublisherID())
 	                .dateCreation(Instant.now())
 	                .build();
 		}

@@ -10,27 +10,28 @@ import { CommentModel, commentRequestModel } from '../comment/comment.model';
 export class PostsService {
 
   SERVER_URL = "http://localhost:8888/COURSE-SERVICE/api/posts/"
+  SERVER_URL_test = "http://localhost:8083/api/posts/"
 
   constructor(private http:HttpClient) {console.log("posts Service"); }
 
 
   getPosts() : Observable<PostModel[]>{
-    return this.http.get<PostModel[]>(this.SERVER_URL);
+    return this.http.get<PostModel[]>(this.SERVER_URL_test);
   }
 
   addPost(post: any) : Observable<any>{
-    return this.http.post(this.SERVER_URL,post);
+    return this.http.post(this.SERVER_URL_test,post);
   }
 
   clickLike(idPost : number) : Observable<any>{
-    return this.http.post(this.SERVER_URL + idPost + "/likes",null);
+    return this.http.post(this.SERVER_URL_test + idPost + "/likes",null);
   }
 
   addComment(idPost : number,comment: commentRequestModel) : Observable<any>{
-    return this.http.post(this.SERVER_URL + idPost + "/comments",comment);
+    return this.http.post(this.SERVER_URL_test + idPost + "/comments",comment);
   }
 
   getAllCommentsForPost(idPost: number): Observable<CommentModel[]> {
-    return this.http.get<CommentModel[]>(this.SERVER_URL + idPost  + "/comments");
+    return this.http.get<CommentModel[]>(this.SERVER_URL_test + idPost  + "/comments");
   }
 }

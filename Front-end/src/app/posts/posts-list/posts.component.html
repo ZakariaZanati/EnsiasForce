@@ -32,7 +32,8 @@
                                     <div id="post-author">
                                         <a href="#">
                                             <div>
-                                                <img src="/assets/user.png" alt="">
+                                                <img *ngIf="post.profileImage" src="/assets/user.png" alt="">
+                                                <img *ngIf="!post.profileImage" src="/assets/user.png" alt="">
                                                 <div>
                                                     <div>
                                                         <strong id="post-author-name" class="letter-spacing">{{post.publisherFullName}}</strong>

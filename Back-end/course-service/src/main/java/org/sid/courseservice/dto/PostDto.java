@@ -20,4 +20,6 @@ public class PostDto {
 	private String description;
 	
 	private MultipartFile file;
+	
+	private Long publisherID;
 }

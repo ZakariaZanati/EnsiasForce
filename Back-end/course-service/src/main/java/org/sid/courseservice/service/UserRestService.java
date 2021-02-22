@@ -12,7 +12,7 @@ public interface UserRestService {
     User getUserById(@PathVariable Long id);
     
     @GetMapping(path = "/api/user")
-    User getCurrentUser(@PathVariable Long id);
+    User getCurrentUser();
     
     
 }

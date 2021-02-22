@@ -33,10 +33,11 @@ public class PostController {
 	private final CommentService commentService;
 	@PostMapping
 	public void createPost(@RequestPart(value = "postImage",required = false) MultipartFile file,
-            @RequestPart("postDescription") String description) throws IOException {
+            @RequestPart("postDescription") String description, @RequestPart("publisherID") String publisherID) throws IOException {
 		
 		PostDto postDto = PostDto.builder()
 						        .description(description)
+						        .publisherID(Long.parseLong(publisherID))
 						        .file(file)
 						        .build();
 		

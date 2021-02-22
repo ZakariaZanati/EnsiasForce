@@ -14,6 +14,7 @@ export class PostModel {
 }
 
 export class postRequestModel{
+    userID : number;
     description: string;
     image?: any;
 }

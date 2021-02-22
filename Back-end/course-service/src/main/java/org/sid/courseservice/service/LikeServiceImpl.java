@@ -17,14 +17,18 @@ public class LikeServiceImpl implements LikeService{
 
 	private final PostRepository postRepository;
 	private final LikeRepository likeRepository;
+	private final UserRestService userRestService;
 	
 	@Override
 	public void likePost(Long idPost) {
 		Post post = postRepository.findById(idPost).get();
 		
-		User user = new User();
+//		User user = new User();
+//		user.setId(10L);
+//		user.setFullName("sefiane mazid");
+		
+		User user = userRestService.getUserById(10L);
 		user.setId(10L);
-		user.setFullName("sefiane mazid");
 		
 		Optional<Like> like = likeRepository.findByPostAndUserID(post,user.getId());
 		
