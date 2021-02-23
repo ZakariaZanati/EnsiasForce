@@ -1,0 +1,58 @@
+<div class="courses_wrapper">
+    <app-sidebar style="width: 250px;"></app-sidebar>
+    <div class="courses_container">
+            <span>Explore courses</span>
+            <div class="d-flex"> <button (click)="openModalPostCreation()" id="createCourseButton">Add New Course</button> </div>
+            <div class="options">
+                <div class="name_filter">
+                    <input (input)="onSearchChange($event.target.value)" type="search" placeholder="Search ..."><i class="fas fa-search"></i>
+                </div>
+                <div class="filters">
+                    <div class="sort">
+                        <label class="sort-label" for="sort">Categorie :</label>
+                        <select [(ngModel)]="categoryFilter" (change)="filterByCategory()" class="sort-select" name="" id="sort">
+                            <option *ngFor="let categ of categories" [ngValue]="categ">{{categ}}</option>
+                        </select>
+                    </div>
+                    <div class="date_filter">
+                        <label for="date">Date : </label>
+                        <input placeholder="yyyy-mm-dd" [(ngModel)]="dateFilter" (ngModelChange)="filterByDate()" ngbDatepicker #d="ngbDatepicker">
+                        <button 
+                        class="btn btn-outline-secondary calendar"
+                        (click)="d.toggle()"
+                        type="button"><i class="fa fa-calendar"></i></button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="courses">
+                <div *ngFor="let course of courses">
+                    <div class="course">
+                        <div class="course_img">
+                            <div *ngIf="course.imageBytes">
+                                <img [src]="course.imageBytes" alt="">
+                            </div>
+                        </div>
+                       
+                        <div class="name">{{course.name}}</div>
+                        <div class="info "><i class="fa fa-calendar-o" aria-hidden="true"></i> Date : {{course.dateTime}} at {{course.time}}</div>
+                        <div class="info "> <i class="fa fa-clock-o" aria-hidden="true"></i> Duration : {{course.duration}}</div>
+                        <div class="info "><i class="fa fa-user-circle-o" aria-hidden="true"></i> Provider : {{course.providerUsername}}</div>
+                        <div class="details"><button (click)="toogleCourse(course)"><i class="fas fa-info"></i> Details</button></div>
+                    </div>
+                    <div *ngIf="course.show" class="course_details"><app-view-course [course]="course"></app-view-course> </div>
+                </div>
+                
+            </div>
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a (click)="previousClick()" class="page-link" id="left"></a></li>
+                <li *ngFor='let index of pageIndexes' class="page-item" [ngClass]="active(index)">
+                        <a (click)="getPaginationWithIndex(index)" class="page-link" id="num">
+                          {{index + 1}}
+                        </a>
+                </li>
+                <li class="page-item"><a (click)="nextClick()" class="page-link" id="right"></a></li>
+            </ul>
+    </div>
+    
+</div>

@@ -9,6 +9,7 @@ import { ProfileComponent } from './user/profile/profile.component';
 import { PostsComponent } from './posts/posts-list/posts.component';
 import { DetailsFormComponent } from './user/details-form/details-form.component';
 import { ProfilesListComponent } from './profiles/profiles-list/profiles-list.component';
+import { CoursesComponent } from './courses/courses.component';
 
 const routes: Routes = [
   {path : '',component : HomeComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'posts',component : PostsComponent},
   {path : 'user-details',component : DetailsFormComponent},
   {path : 'ensiastes',component : ProfilesListComponent},
-  {path : 'profile/:id',component : ProfileComponent}
+  {path : 'profile/:id',component : ProfileComponent},
+  {path: 'courses',component : CoursesComponent}
 
 ];
 
