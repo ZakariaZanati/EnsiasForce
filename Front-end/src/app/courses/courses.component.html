@@ -37,7 +37,7 @@
                         <div class="name">{{course.name}}</div>
                         <div class="info "><i class="fa fa-calendar-o" aria-hidden="true"></i> Date : {{course.dateTime}} at {{course.time}}</div>
                         <div class="info "> <i class="fa fa-clock-o" aria-hidden="true"></i> Duration : {{course.duration}}</div>
-                        <div class="info "><i class="fa fa-user-circle-o" aria-hidden="true"></i> Provider : {{course.providerUsername}}</div>
+                        <div class="info "><i class="fa fa-user-circle-o" aria-hidden="true"></i> Provider : {{course.publisherFullName}}</div>
                         <div class="details"><button (click)="toogleCourse(course)"><i class="fas fa-info"></i> Details</button></div>
                     </div>
                     <div *ngIf="course.show" class="course_details"><app-view-course [course]="course"></app-view-course> </div>

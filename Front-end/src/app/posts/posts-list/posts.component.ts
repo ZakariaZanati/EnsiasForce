@@ -47,6 +47,10 @@ export class PostsComponent implements OnInit {
           if (img) {
             post.image = "data:image/jpeg;base64,"+post.image;
           }
+          const imgUser = post.profileImage;
+          if (imgUser) {
+            post.profileImage = "data:image/jpeg;base64,"+post.profileImage;
+          }
         })
         this.posts = posts;
         console.log(this.posts);

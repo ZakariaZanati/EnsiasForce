@@ -2,15 +2,19 @@ package org.sid.courseservice.mapper;
 
 import org.sid.courseservice.dto.CourseResponse;
 import org.sid.courseservice.entity.Course;
+import org.sid.courseservice.entity.User;
 import org.sid.courseservice.repository.CommentRepository;
 import org.sid.courseservice.repository.LikeRepository;
+import org.sid.courseservice.service.UserRestService;
 import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 
-//@AllArgsConstructor
+@AllArgsConstructor
 @Service
 public class CourseMapper {
+
+	private final UserRestService userSevice;
 	
 	public CourseResponse courseToCourseResponse(Course course) {
 		CourseResponse courseResponse = CourseResponse.builder()
@@ -32,6 +36,7 @@ public class CourseMapper {
 
 	
 	private String getPublisherFullName(Long publisherId) {
-		return "sefiane mazid";
+		User publisher = userSevice.getUserById(publisherId);
+		return publisher.getFullName();
 	}
 }

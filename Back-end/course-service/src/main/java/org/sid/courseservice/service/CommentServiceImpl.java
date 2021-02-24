@@ -33,8 +33,8 @@ public class CommentServiceImpl implements CommentService {
 //		publisher.setId(10L);
 //		publisher.setFullName("sefiane mazid");
 		
-		User publisher = userRestService.getUserById(10L);
-		publisher.setId(10L);
+		User publisher = userRestService.getUserById(15L);
+		publisher.setId(15L);
 		
 		Comment comment = Comment.builder()
 		.dateCreation(new Date())

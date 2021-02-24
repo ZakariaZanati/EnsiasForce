@@ -61,7 +61,7 @@ public class PostMapper {
 	private byte[] getPublisherImage(Long idUser) {
 		User publisher = userSevice.getUserById(idUser);
 		if (publisher.getImage() == null)  return null;
-		return decompressBytes(publisher.getImage());
+		return publisher.getImage();
 	}
 	
 	private String getDuration(Post post){

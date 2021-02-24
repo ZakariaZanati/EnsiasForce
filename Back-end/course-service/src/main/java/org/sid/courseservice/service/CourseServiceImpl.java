@@ -37,6 +37,7 @@ public class CourseServiceImpl implements CourseService{
 
     
     private final CourseMapper courseMapper;
+	private final UserRestService userRestService;
 
     public void addCourse(MultipartFile file, String name,
                      String description,
@@ -47,9 +48,8 @@ public class CourseServiceImpl implements CourseService{
                      String duration,
                      String time) throws IOException {
     	
-    	User publisher = new User();
-		publisher.setId(10L);
-		publisher.setFullName("sefiane mazid");
+    	User publisher = userRestService.getUserById(15L);
+		publisher.setId(15L);
 		
        
         Course course = Course.builder()

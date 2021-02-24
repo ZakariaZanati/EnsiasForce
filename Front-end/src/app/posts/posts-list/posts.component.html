@@ -32,7 +32,7 @@
                                     <div id="post-author">
                                         <a href="#">
                                             <div>
-                                                <img *ngIf="post.profileImage" src="/assets/user.png" alt="">
+                                                <span *ngIf="post.profileImage"><img  [src]="post.profileImage" alt=""></span>
                                                 <img *ngIf="!post.profileImage" src="/assets/user.png" alt="">
                                                 <div>
                                                     <div>

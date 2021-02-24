@@ -18,7 +18,7 @@ export class CreateCourseComponent implements OnInit {
   ///courseTime = {hour: 0, minute: 0};
   //courseDuration = {hour: 0, minute: 0};
 
-  categories = ['Computer science','History','Communication','Data science','Cloud computing','Economics','Biology','Art','Physics','Psychiatry','Fiance','Medicine','Philosophy']
+  categories = ['Computer science', 'software engineering', 'Data science', 'Business intelligence', 'Artificial intelligence', 'Web & Mobile development', 'Cloud']
 
   file : File;
   public imagePath;
@@ -87,10 +87,16 @@ export class CreateCourseComponent implements OnInit {
     uploadCourse.append('time',timeFormat);
     uploadCourse.append('date',dateFormat.toISOString());
     uploadCourse.append('category',this.courseForm.get('category').value);
-    this.courseService.createCourse(uploadCourse);
+    this.courseService.createCourse(uploadCourse).subscribe(data => {
+      console.log(data);
+      console.log("Course created");
+      let result = uploadCourse;
+      this.activeModal.close(result);
+    },err => {
+      throwError(err);
+    });
     console.log(uploadCourse);
-    let result = uploadCourse;
-    this.activeModal.close(result);
+    
   }
 
 }

@@ -27,8 +27,8 @@ public class LikeServiceImpl implements LikeService{
 //		user.setId(10L);
 //		user.setFullName("sefiane mazid");
 		
-		User user = userRestService.getUserById(10L);
-		user.setId(10L);
+		User user = userRestService.getUserById(15L);
+		user.setId(15L);
 		
 		Optional<Like> like = likeRepository.findByPostAndUserID(post,user.getId());
 		

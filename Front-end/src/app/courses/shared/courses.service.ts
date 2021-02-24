@@ -13,13 +13,8 @@ export class CoursesService {
 
   constructor(private http:HttpClient) { }
 
-  createCourse(course : FormData){
-    return this.http.post(this.SERVER_URL_test, course).subscribe(data => {
-      console.log(data);
-      console.log("Course created");
-    },err => {
-      throwError(err);
-    });
+  createCourse(course : FormData):Observable<any>{
+    return this.http.post(this.SERVER_URL_test, course);
   }
 
 getCourse(id : number):Observable<CourseModel>{
